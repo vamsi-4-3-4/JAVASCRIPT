@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        .red{
+            color:red;
+        }
+        </style>
+</style>
+    </head>
+    <body>
+        <div id="page">
+        <center>
+            <h1 class="mainhead">JAVASCRIPT ARRAYS</h1>
+        </center>
+        <h3 class="red">DISADVANTAGE OF STORING DATA IN VARIABLES</h3>
+        <p>Before going to <big>understand</big> the concept of the <u>ARRAYS</u>,you need to understnad the probelm of storing 
+            large number of <strong>data</strong> <b>items</b> <i>using</i> the variables <br/>
+            As we know that <mark>variables</mark> are used to store the data items like characters,strings,numbers,floating-point numbers etc
+            <br/>
+            The main problem of using variables to store data is that in the variable we can store only one data item<br/>
+            consider the case that we have to store the details of the students in the class <br/>
+    Here i am going to store details of the student using variables and i am going access those details again
+        </p>
+        <div class="codetitle red"><h3>DISADVANTAGES OF STORING DATA IN VARIABLES EXAMPLE CODE</h3></div>
+        <div class="totalcode">
+        <div class="htmlcode">
+            <h4 class="red">HTML CODE</h4>
+<p>
+    &lt;div id="studentdetails"&gt;<br/>
+        &lt;h6&gt;&lt;STUDENT NAME:&lt;span id="studentname"&gt;&lt;/span>&lt;/h6&gt;<br/>
+        &lt;h6>ROLL NUMBER:&lt;span id="rollno"&gt;&lt;/span>&lt;/h6&gt;<br/>
+        &lt;h6>MOBILE NUMBER:&lt;span id="mobile"&gt;&lt;/span>&lt;/h6&gt;<br/>
+        &lt;h6>COURSE TAKEN:&lt;span id="coursetaken"&gt;</span>&lt;/h6&gt;<br/>
+        &lt;h6>COST PER A DAY:&lt;span id="costperday"&gt;</span></h6&gt;<br/><br/>
+        &lt;h6>NUMBER OF DAYS ATTENDED:&lt;span id="noofdaysattended"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+        &lt;h6>TOTAL:&lt;span id="total"&gt;&lt;/span>&lt;/h6&gt;<br/>
+        &lt;/div&gt;<br/>
+</p>
+        </div>
+
+<div class="javascriptcode">
+    <h4 class="red">JAVA SCRIPT CODE</h4>
+    <p>
+    var studentname="vamsi";<br/>
+var rollno="1122334455";<br/>
+var mobile="9988776655";<br/>
+var coursetaken="javascript";<br/>
+var costperday=300;<br/>
+var noofdaysattended=20;<br/>
+var total=costperday*noofdaysattended;<br/>
+document.getElementById("studentname").innerText=studentname;<BR/>
+document.getElementById("rollno").innerText=rollno;<BR/>
+document.getElementById("mobile").innerText=mobile;<BR/>
+document.getElementById("coursetaken").innerText=coursetaken;<BR/>
+document.getElementById("costperday").innerText=costperday;<BR/>
+document.getElementById("noofdaysattended").innerText=noofdaysattended;<br/>
+document.getElementById("total").innerText=total;<br/>
+document.getElementById("studentnamee").innerText=studentname;<br/>
+document.getElementById("rollnoo").innerText=rollno;<br/>
+document.getElementById("mobilee").innerText=mobile;<br/>
+document.getElementById("coursetakenn").innerText=coursetaken;<br/>
+document.getElementById("costperdayy").innerText=costperday;<br/>
+document.getElementById("noofdaysattendedd").innerText=noofdaysattended;<br/>
+document.getElementById("totall").innerText=total;<br/>
+</p>
+</div>
+</div>
+<div class="outputofcode">
+    <h4 class="red">OUTPUT OF THE ABOVE CODE</h4>
+<div id="studentdetails">
+  <h6>STUDENT NAME:<span id="studentname"></span></h6>
+  <h6>ROLL NUMBER:<span id="rollno"></span></h6>
+  <h6>MOBILE NUMBER:<span id="mobile"></span></h6>
+  <h6>COURSE TAKEN:<span id="coursetaken"></span></h6>
+  <h6>COST PER A DAY:<span id="costperday"></span></h6>
+  <h6>NUMBER OF DAYS ATTENDED:<span id="noofdaysattended"></span></h6>
+  <h6>TOTAL:<span id="total"></span></h6>
+</div>
+
+<table border="1px">
+    <tr>
+        <th>STUDENT NAME</th>
+        <th>ROLL NUMBER</th>
+        <th>MOBILE NUMBER</th>
+        <th>COURSE TAKEN</th>
+        <th>COST PER A DAY</th>
+        <th>NUMBER OF DAYS ATTENDED</th>
+        <th>TOTAL</th>
+    </tr>
+    <tr>
+        <td id="studentnamee"></td>
+        <td id="rollnoo"></td>
+        <td id="mobilee"></td>
+        <td id="coursetakenn"></td>
+        <td id="costperdayy"></td>
+        <td id="noofdaysattendedd"></td>
+        <td id="totall"></td>
+    </tr>
+</table>
+</div>
+        
+    <p>IF we observe the above code we have used 7 variables to store the student data<br/>
+    If we want to store the details of 100 students we need nearly 100*7=700 variables to store the details of the students<br/>
+Think about the company where it was having one billion users if that company wants to store the same data which i was stored<br/>
+developer have to create 7 billion variables<br/>
+</p>
+<p>Now we are going to see how the ARRAYS are reducing the number of variables</p>
+<!--ARRAY CODE-->
+
+
+<h3 class="red">EXAMPLE CODE USAGE OF ARRAYS</h3>
+<h3 class="red">HTML CODE</h3>
+<!--HTML CODE-->
+&lt;div class="htmlcode"&gt;<br/>
+    &lt;div id="studentdetailss"&gt;<br/>
+    &lt;h6&gt;STUDENT NAME:&lt;span id="studentnameop"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+    &lt;h6&gt;ROLL NUMBER:&lt;span id="rollnoop"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+    &lt;h6&gt;MOBILE NUMBER:&lt;span id="mobileop"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+    &lt;h6&gt;COURSE TAKEN:&lt;span id="coursetakenop"&gt;&lt;/span>&lt;/h6&gt;<br/>
+    &lt;h6&gt;COST PER A DAY:&lt;span id="costperdayop"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+    &lt;h6&gt;NUMBER OF DAYS ATTENDED:&lt;span id="noofdaysattendedop"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+    &lt;h6&gt;TOTAL:&lt;span id="totalop"&gt;&lt;/span&gt;&lt;/h6&gt;<br/>
+    &lt;/div&gt;<br/>
+
+    &lt;/div&gt;<br/>
+
+<!--JAVA SCRIPT CODE-->
+<div class="javascriptcode">
+<h3 class="red">JAVA SCRIPT CODE</h3>
+var studentarray=new Array("vamsi","1122334455","9988776655","javascript","500","30");<br/>
+
+document.getElementById("studentnameop").innerText=studentarray[0];<br/>
+document.getElementById("rollnoop").innerText=studentarray[1];<br/>
+document.getElementById("mobileop").innerText=studentarray[2];<br/>
+document.getElementById("coursetakenop").innerText=studentarray[3];<br/>
+document.getElementById("costperdayop").innerText=studentarray[4];<br/>
+document.getElementById("noofdaysattendedop").innerText=studentarray[5];<br/>
+document.getElementById("totalop").innerText=studentarray[4]*studentarray[5];<br/>
+
+document.getElementById("studentnameeop").innerText=studentarray[0];<br/>
+document.getElementById("rollnooop").innerText=studentarray[1];<br/>
+document.getElementById("mobileeop").innerText=studentarray[2];<br/>
+document.getElementById("coursetakennop").innerText=studentarray[3];<br/>
+document.getElementById("costperdayyop").innerText=studentarray[4];<br/>
+document.getElementById("noofdaysattendeddop").innerText=studentarray[5];<br/>
+document.getElementById("totallop").innerText=studentarray[4]*studentarray[5];<br/>
+</div>
+<div class="outputofcode">
+    <h4 class="red">OUTPUT OF THE ABOVE CODE</h4>
+<div id="studentdetailss">
+  <h6>STUDENT NAME:<span id="studentnameop"></span></h6>
+  <h6>ROLL NUMBER:<span id="rollnoop"></span></h6>
+  <h6>MOBILE NUMBER:<span id="mobileop"></span></h6>
+  <h6>COURSE TAKEN:<span id="coursetakenop"></span></h6>
+  <h6>COST PER A DAY:<span id="costperdayop"></span></h6>
+  <h6>NUMBER OF DAYS ATTENDED:<span id="noofdaysattendedop"></span></h6>
+  <h6>TOTAL:<span id="totalop"></span></h6>
+</div>
+
+<table border="1px">
+    <tr>
+        <th>STUDENT NAME</th>
+        <th>ROLL NUMBER</th>
+        <th>MOBILE NUMBER</th>
+        <th>COURSE TAKEN</th>
+        <th>COST PER A DAY</th>
+        <th>NUMBER OF DAYS ATTENDED</th>
+        <th>TOTAL</th>
+    </tr>
+    <tr>
+        <td id="studentnameeop"></td>
+        <td id="rollnooop"></td>
+        <td id="mobileeop"></td>
+        <td id="coursetakennop"></td>
+        <td id="costperdayyop"></td>
+        <td id="noofdaysattendeddop"></td>
+        <td id="totallop"></td>
+    </tr>
+
+
+</table>
+</div>
+
+<p>whenever we have stored the details of the student on the ARRAY we have created only one Variable<br/>
+I we consider the case of an organization which was decided to store the details of the one billion users<br/>
+now we need to create one billion variables compared to the creation of the 7 billion variables creatring 1 billion variables is somewhat easy<br/>
+Assume that instead of 7 variables i decided to store 30 details of the students <br/>
+if i decided to store 30 details of one billion users here i need 30 billion variables<br/>
+in the case of array to store 30 details of one billion users I need only 1 billion variables<br/>
+</p>
+<h3 class="red">NOTE:I HAVE TAKEN ONE BILLION USERS TO EXPLAIN THE CONCEPT OF AARAY IN REAL TIME SOFTWARE APPLICATIONS WE USE THE DATABASES TO STORE THE DATA</h3>
+<!--ARRAY INTRODUCTION-->
+<h3 class="red">WHAT IS AN ARRAY?</h3>
+<p>Array is Linear Data Structure and object in the JAVASCRIPT<br/>
+ which is used to store the items of an one Data Type<br/>
+we can store only characters in one array<br/>
+or<br/>
+we can store only numbers in one Array<br/>
+but we cannot store both characters and numbers in a single Array in many programming languages like<br/>
+<br/>c<br/>
+c++<br/>
+JAVA<br/>
+---<br/>
+etc.
+</p>
+
+<!--EXAMPLE OF ARRAY-->
+<!-- ARRAY CREATION IN JS-->
+<h3 class="red">HOW TO CREATE AN ARRAY IN JAVASCRIPT</h3>
+we can create arrays in many ways here i am listing and focusing on the following ways<br/>
+1.CREATING ARRAYS USING ARRAY OBJECT<br/>
+2.CREATING ARRAYS USING ARRAY LITERALS<br/>
+<h2>1.CREATING ARRAYS USING ARRAY OBJECT</h2>
+<p>To create the ARRAY in the JAVASCRIPT,we have to define the variable name by using let or var or const to your Array<br/>
+here i was defined the name of the my array as programming languages<br/>
+let programminglanguages<br/>
+we already know that ARRAY is OBJECT in JAVASCRIPT<br/>
+since the ARRAY is OBJECT in JAVASCRIPT we need use new key word to create an ARRAY<br/>
+next to the new Keyword we need to specify Array()<br/>
+let programminglangs=new Array();<br/>
+we need specify how many number of elements to the Array object<br/>
+here i am specifiying 5<br/>
+let programminglangs=new Array(5);<br/>
+
+</p>
+<h3 class="red">EXAMPLE CODE OF CREATING AN ARRAY</h3>
+<div id="sourcecode">
+    
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+
+    &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;h3 id="item1"&gt;&lt;/h3&gt;<br/>
+
+    &lt;script&gt;<br/>
+let programminglangs=new Array(5);<br/>
+document.getElementById("item1").innerText=typeof programminglangs;<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="outputofthecodes">
+    <h3>object</h3>
+</div>
+
+<p>typeof is the inbuit operator of the JAVASCRIPT,which is used to know the type of an particular data item</p>
+<!--ACCESSING THE ARRAY ELEMENTS-->
+<h3 class="red">HOW TO ACCESS THE ARRAY ELEMENTS</h3>
+<p>
+    Elements of the array will be stored on the contigious memory locations<br/>
+    We can access the array elements with the index of an array<br/>
+    Index of the Array starts from the Zero and ends at the defined size of an array<br/>
+    If the size of the Array is not defined we can use the following ways to find the size of an array<br/>
+
+</p>
+<!--ARRAY SIZE CALCULATION-->
+<h3 class="red">WAYS TO FIND THE SIZE OF AN ARRAY</h3>
+<h3>1.USING OF THE LENGTH INBUILT FUNCTION</h3>
+<h3>2.USING WHILE LOOP</h3>
+<!--length function code-->
+<h3 class="red">EXAMPLE CODE OF LENGTH INBUILT FUNCTION</h3>
+<div id="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+
+        &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;h3 id="item1"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item2"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item3"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item4"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item5"&gt;&lt;/h3&gt;<br/>
+
+
+    &lt;script&gt;<br/>
+let programminglangs=[];<br/>
+
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+document.getElementById("item1").innerText=programminglangs[0];<br/>
+document.getElementById("item2").innerText=programminglangs[1];<br/>
+document.getElementById("item3").innerText=programminglangs[2];<br/>
+document.getElementById("item4").innerText=programminglangs[3];<br/>
+document.getElementById("item5").innerText=programminglangs.length;<br/>
+    &lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<!-- length function code output-->
+<div>
+   <h4>JAVA</h4>
+    <h4>SCALA</h4>
+        <h4>DART</h4>
+            <h4>KOTLIN</h4>
+                <h4>4</h4>
+</div>
+<!--ARRAY LENGTH USING WHILE LOOP-->
+<h3 class="red">FINDING LENGTH USING WHILE LOOP</h3>
+<p>We have to follow the following steps to find the length of an Array<br/>
+STEP1:DECLARE A VARIABE FOR STORING THE COUNT<br/>
+STEP2:BY USING WHILE LOOP TRAVERSE THE ARRAY<br/>
+STEP3:IF THE ARRAY ELEMENT IS NOT EQUAL TO THE NULL INCREASE THE COUNT<br/>
+STEP4:RETURN THE COUNT<br/>
+</p>
+<!--WHILE LOOP LENGTH CODE-->
+<h3 class="red">FINDING LENGTH USING WHILE LOOP EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+
+        &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY LENGTH:&lt;span id="item1"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+
+
+    &lt;script&gt;<br/>
+let programminglangs=[];<br/>
+
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+let iter=0;<br/>
+let arraylength=0;<br/>
+while(programminglangs[iter]!=null){<br/>
+    arraylength++;<br/>
+    iter++;<br/>
+}<br/>
+document.getElementById("item1").innerText=arraylength;<br/>
+
+
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<!--OUTPUT OF THE ARRAY LENGTH WHILE LOOP CODE-->
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="outputofabove">
+    <h3>ARRAY LENGTH:5</h3>
+</div>
+
+<!--ARRAY ELEMENTS ACCESS THROUGH LOOPS-->
+<h3 class="red">ACCESSING ELEMENTS OF AN ARRAY</h3>
+<h4 class="red">WE CAN ACCESS THE ARRAY ELEMENTS BY THE FOLLOWING WAYS</h4>
+<ol>
+    <li><h3>1.BY USING WHILE LOOP</h3></li>
+    <li><h3>2.BY USING FOR LOOP</h3></li>
+    <li><h3>3.BY USINF FOR-IN LOOP</h3></li>
+    <li><h3>4.BY USING DO-WHILE LOOP</h3></li>
+</ol>
+<!--SOURCE CODE OF WILE LOOP METHOD OF ACCESSING THE ARRAY ELEMENTS-->
+<h3 class="red">ACCESSING ARRAY ELEMENTS USING WHILE LOOP</h3>
+<h3 class="red">SOURCE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+    
+        &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+        &lt;div id="listing"&gt;<br/>
+        &lt;/div&gt;<br/>
+    
+    
+        &lt;script&gt;<br/>
+        const listing=document.getElementById("listing");<br/>
+        const olo=document.createElement("ol");<br/>
+        listing.appendChild(olo);<br/>
+    
+    let programminglangs=[];<br/>
+    
+    programminglangs[0]="JAVA";<br/>
+    programminglangs[1]="SCALA";<br/>
+    programminglangs[2]="DART";<br/>
+    programminglangs[3]="KOTLIN";<br/>
+    programminglangs[4]="SWIFT";<br/>
+    let iter=0;<br/>
+    let arraylength=0;<br/>
+    while(programminglangs[iter]!=null){<br/>
+        var lio=document.createElement("li");<br/>
+        var a=programminglangs[iter];<br/>
+        lio.appendChild(document.createTextNode(a));<br/>
+        olo.appendChild(lio);<br/>
+        arraylength++;<br/>
+        iter++;<br/>   
+    }<br/>
+        &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+ </div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<ol>
+    <li>JAVA</li>
+    <li>SCALA</li>
+    <li>DART</li>
+    <li>KOTLIN</li>
+    <li>SWIFT</li>
+</ol>
+
+
+<!--printing array elements using of the for loop-->
+<h3 class="red">ACCESSING ARRAY ELEMENTS USING FOR LOOP METHOD ONE</h3>
+<H3 class="red">SOURCE CODE</H3>
+<div class="sourcecode">
+&lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head&gt;&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;div id="listing"&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+let iter=0;<br/>
+let arraylength=0;<br/>
+
+while(programminglangs[iter]!=null){ <br/>
+    arraylength++;<br/>
+    iter++;<br/>
+}<br/>
+for(let i=0;i<arraylength;i++){<br/>
+    var lio=document.createElement("li");<br/>
+    var a=programminglangs[i];<br/>
+    lio.appendChild(document.createTextNode(a));<br/>
+    olo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+&lt;/div&gt;<br/>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div>
+    <ol>
+        <li>JAVA</li>
+        <li>SCALA</li>
+        <li>DART</li>
+        <li>KOTLIN</li>
+        <li>SWIFT</li>
+        <li>GO</li>
+    </ol>
+</div>
+
+<!-- printing array elements using of for loop output-->
+<!--ACCESSING ARRAY ELEMENTS USING FOR LOOP METHOD 2-->
+<h3 class="red">ACCESSING ARRAY ELEMENTS USING FOR LOOP WAY-2</h3>
+<h3 class="red"><u>SOURCE CODE</u></h3>
+&lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head&gt;&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;div id="listing"&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+for(let i=0;i<programminglangs.length;i++){<br/>
+    var lio=document.createElement("li");<br/>
+    var a=programminglangs[i];<br/>
+    lio.appendChild(document.createTextNode(a));<br/>
+    olo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+<h3 class="red"><u>OUTPUT OF THE ABOVE CODE</u></h3>
+<!--ACCESSING ARRAY ELEMENTS USING FOR LOOP METHOD 2-->
+<ol>
+<li>JAVA
+<li>SCALA</li>
+<li>DART</li>
+<li>KOTLIN</li>
+<li>SWIFT</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+</ol>
+
+<!--ACCESSING THE ARRAY ELEMENTS USING OF THE FOR IN LOOP-->
+<h3 class="red">ACCESSING THE ARRAY ELEMENTS BY USING OF THE FOR IN LOOP</h3>
+
+
+<h3 class="red"><strong>SOURCE CODE</strong></h3>
+&lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head&gt;&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;div id="listing"&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+programminglangs[7]="RUBY";<br/>
+for(item in programminglangs){<br/>
+    var lio=document.createElement("li");<br/>
+    var a=programminglangs[item];<br/>
+    lio.appendChild(document.createTextNode(a));<br/>
+    olo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+<h3 class="red"><strong>OUTPUT OF THE ABOVE SOURCE CODE</strong></h3>
+<ol>
+<li>JAVA</li>
+<li>SCALA</li>
+<li>DART</li>
+<li>KOTLIN</li>
+<li>SWIFT</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>RUBY</li>
+</ol>
+<!--ACCESSING THE ARRAY ELEMENTS USING OF FOR IN LOOP ENDS HERE-->
+<!--ACCESSING ARRAY ELEMENTS USING DO WHILE LOOP-->
+<h3 class="red">ACCESSING ARRAY ELEMENTS USING DO_WHILE LOOP</h3>
+<h3 class="red"><u>SOURCE CODE</u></h3>
+&lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head&gt;&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;div id="listing"&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+programminglangs[7]="RUBY";<br/>
+programminglangs[8]="PYTHON";<br/>
+var iter=0;<br/>
+do{<br/>
+    var lio=document.createElement("li");<br/>
+    var a=programminglangs[iter];<br/>
+    lio.appendChild(document.createTextNode(a));<br/>
+    olo.appendChild(lio);<br/>
+    iter++;<br/>
+}while(programminglangs[iter]!=null);<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+<h3 class="red"><U>OUTPUT OF THE ABOVE SOURCE CODE</U></h3>
+<ol>
+<li>JAVA</li>
+<li>SCALA</li>
+<li>DART</li>
+<li>KOTLIN</li>
+<li>SWIFT</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>RUBY</li>
+<li>PYTHON</li>
+</ol>
+<!--ACCESSING ARRAY ELEMENTS USING DO WHILE LOOP ENDS HERE-->
+
+ <!--ACCESSING ARRAY ELEMENTS USING FOR OF LOOP STARTS HERE-->
+ <h3 class="red">ACCESSING ARRAY ELEMENTS USING FOR...OF LOOP</h3>
+ <h3><u>SOURCE CODE</u></h3>
+ 
+&lt;!DOCTYPE html&gt;><br/>
+&lt;html&gt;><br/>
+    &lt;head&gt;><br/>
+        &lt;style&gt;><br/>
+            body{><br/>
+                background-color:black;><br/>
+                color:yellow;><br/>
+            }
+        &lt;/style&gt;><br/>
+    &lt;/head&gt;><br/>
+&lt;body&gt;><br/>
+    &lt;div id="listing"&gt;><br/>
+    &lt;/div&gt;><br/>
+    &lt;script&gt;><br/>
+const listing=document.getElementById("listing");><br/>
+const olo=document.createElement("ol");><br/>
+listing.appendChild(olo);><br/>
+let programminglangs=[];><br/>
+programminglangs[0]="JAVA";><br/>
+programminglangs[1]="SCALA";><br/>
+programminglangs[2]="DART";><br/>
+programminglangs[3]="KOTLIN";><br/>
+programminglangs[4]="SWIFT";><br/>
+programminglangs[5]="GO";><br/>
+programminglangs[6]="JAVASCRIPT";><br/>
+programminglangs[7]="RUBY";><br/>
+programminglangs[8]="PYTHON";><br/>
+programminglangs[9]="C++";><br/>
+
+
+for(const dataitem of programminglangs){><br/>
+    var lio=document.createElement("li");><br/>
+    var a=dataitem;><br/>
+    lio.appendChild(document.createTextNode(a));><br/>
+    olo.appendChild(lio);><br/>
+}><br/>
+&lt;/script&gt;><br/>
+&lt;body&gt;><br/>
+&lt;/html&gt;><br/>
+ <h3 class="red"><u>OUTPUT OF THE ABOVE CODE</u></h3>
+ <ol>
+    <li>JAVA</li>
+    <li>SCALA</li>
+    <li>DART</li>
+    <li>KOTLIN</li>
+    <li>SWIFT</li>
+    <li>GO</li>
+    <li>JAVASCRIPT</li>
+    <li>RUBY</li>
+    <li>PYTHON</li>
+    <li>C++</li>
+ </ol>
+ <!--ACCESSING ARRAY ELEMENTS USING FOR OF LOOP ENDS HERE-->
+
+
+
+<!--ARRAY ELEMENTS ACCESS THROUGH LOOPS ENDS HERE-->
+
+
+
+<!--ACCESSING THE ARRAY ELEMENTS ENDS HERE-->
+
+<h1 class="red">OTHER CASES</h1>
+
+<h3 class="red">CAN WE DEFINE AN ARRAY WITHOUT DEFINING THE SIZE???</h3>
+<h3>yes!!! we can define an Array without specifiying the size of an Array</h3>
+<h3 class="red">EXAMPLE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+
+    &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;h3 id="item1"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item2"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item3"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item4"&gt;&lt;/h3&gt;<br/>
+
+    &lt;script&gt;<br/>
+let programminglangs=new Array();<br/>
+programminglangs[0]="javascript";<br/>
+programminglangs[1]="go";<br/>
+programminglangs[2]="ruby";<br/>
+programminglangs[3]="python";<br/>
+document.getElementById("item1").innerText=programminglangs[0];<br/>
+document.getElementById("item2").innerText=programminglangs[1];<br/>
+document.getElementById("item3").innerText=programminglangs[2];<br/>
+document.getElementById("item4").innerText=programminglangs[3];<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div>
+    <h4>javascript</h4>
+    <h4>go</h4>
+    <h4>ruby</h4>
+    <h4>python</h4>
+
+</div>
+
+<!--WHAT HAPPENS IF WE SPECIFY THE ARRAY WITH THE SIZE-->
+<h3 class="red">WHAT HAPPENS IF WE SPECIFY THE SIZE OF THE ARRAY AND STORE MORE ELEMENTS THAN THE SPECIFIED SIZE</h3>
+<p>we can store any number of elements even we specified the size of an array<br/>
+we will get the undefined as the output if we try to access the item which is not there in the range of the array size<br/>
+</p>
+<!-- ARRAY RANGE EXAMPLE CODE IS HERE-->
+
+<h3 class="red">EXAMPLE CODE</h3>
+<div id="sourcecode">
+
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+    
+    &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;h3 id="item1"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item2"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item3"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item4"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item5"&gt;&lt;/h3&gt;<br/>
+    
+    
+    &lt;script&gt;<br/>
+    let programminglangs=new Array(1);<br/>
+    
+    programminglangs[0]="javascript";<br/>
+    programminglangs[1]="go";<br/>
+    programminglangs[2]="ruby";<br/>
+    programminglangs[3]="python";<br/>
+    document.getElementById("item1").innerText=programminglangs[0];<br/>
+    document.getElementById("item2").innerText=programminglangs[1];<br/>
+    document.getElementById("item3").innerText=programminglangs[2];<br/>
+    document.getElementById("item4").innerText=programminglangs[3];<br/>
+    document.getElementById("item5").innerText=programminglangs[100];<br/>
+    
+    &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+
+</div>
+<!--OUTPUT OF THE ARRAY RANGE CODE-->
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div>
+<h4>javascript</h4>
+    <h4>go</h4>
+        <h4>ruby</h4>
+            <h4>python</h4>
+                <h4>undefined</h4>
+</div>
+
+<h2 class="red">2.CREATING ARRAYS USING ARRAY LITERALS</h2>
+<p>
+    we use the square brackets to create an arrays and these type of arrays also obey the properties<br/>
+    which are seen on the above
+</p>
+<!--EXAMPLE CODE OF THE ARRAY LITERALS-->
+<div id="sourcecode">
+    <h3 class="red">SOURCE CODE</h3>
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+
+        &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;h3 id="item1"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item2"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item3"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item4"&gt;&lt;/h3&gt;<br/>
+    &lt;h3 id="item5"&gt;&lt;/h3&gt;<br/>
+
+
+    &lt;script&gt;<br/>
+let programminglangs=[];<br/>
+
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+document.getElementById("item1").innerText=programminglangs[0];<br/>
+document.getElementById("item2").innerText=programminglangs[1];<br/>
+document.getElementById("item3").innerText=programminglangs[2];<br/>
+document.getElementById("item4").innerText=programminglangs[3];<br/>
+document.getElementById("item5").innerText=programminglangs[100];<br/>
+
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<!--OUTPUT OF THE ARRAY LITERALS CODE-->
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div>
+<h4>JAVA</h4>
+    <h4>SCALA</h4>
+        <h4>DART</h4>
+            <h4>KOTLIN</h4>
+                <h4>undefined</h4>
+</div>
+<!--ARRAY EXAMPLES-->
+<h1 class="red">METHODS AND PROPERTIES OF JAVASCRIPT ARRAYS</h1>
+<p>To process the data items which was stored in ARRAY in the efficient way JAVASCRIPT provided a few built-in methods <br/>
+Here we are going see each and every method in detailed way</p>
+<h1 class="red">1.Array.isArray()</h1>
+<p>isArray() method is used to check wether the given data item is a ARRAY or not</p>
+<h3 class="red">EXAMPLE CODE OF ISARRAY() METHOD</h3>
+<h3 class="red">SOURCE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+            &lt;style&gt;<br/>
+                body{<br/>
+                    background-color:black;<br/>
+                    color:yellow;<br/>
+                }<br/>
+            &lt;/style&gt;<br/>
+        &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+        &lt;h3&gt;myArray1:&lt;span id="item1"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+        &lt;h3&gt;myArray2:&lt;span id="item2"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+        &lt;h3&gt;a:&lt;span id="item3"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+        &lt;script&gt;<br/>
+    const myArraya=new Array();<br/>
+    const myArrayb=[];<br/>
+    const a="hello javascript";<br/>
+    document.getElementById("item1").innerText=Array.isArray(myArraya);<br/>
+    document.getElementById("item2").innerText=Array.isArray(myArrayb);<br/>
+    document.getElementById("item3").innerText=Array.isArray(a);<br/>
+    &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<h4>myArray1:true</h4>
+<h4>myArray2:true</h4>
+<h4>a:false</h4>
+<!--isArray() method ends here-->
+<!--ARRAY.FIND() METHOD STARTS HERE -->
+<h1 class="red">2.ARRAY.FIND()</h1>
+<h3 class="red">SOURCE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+    &lt;style&gt;<br/>
+    body{<br/>
+    background-color:black;<br/>
+    color:yellow;<br/>
+    } &lt;/style&gt;<br/>
+    &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+        &lt;h3&gt;ARRAY TAKEN</h3&gt;<br/>
+    &lt;div id="listing"&gt;</div&gt;<br/>
+        &lt;h3&gt;FINDING OF JAVA:&lt;span id="item1"&gt;&lt;/span>&lt;/h3&gt;<br/>
+        &lt;h3>FINDING OF RUST:&lt;span id="item2">&lt;/span>&lt;/h3&gt;<br/>
+        &lt;h3&gt;FINDING OF GO:&lt;span id="item3"&gt;&lt;/span>&lt;/h3&gt;<br/>
+        &lt;h3&gt;FINDING OF CLOJURE:&lt;span id="item4"&gt;&lt;/span>&lt;/h3&gt;<br/>
+        
+        
+    
+    &lt;script&gt;<br/>
+    const listing=document.getElementById("listing");<br/>
+    const olo=document.createElement("ol");<br/>
+    listing.appendChild(olo);<br/>
+    let programminglangs=[];<br/>
+    programminglangs[0]="JAVA";<br/>
+    programminglangs[1]="SCALA";<br/>
+    programminglangs[2]="DART";<br/>
+    programminglangs[3]="KOTLIN";<br/>
+    programminglangs[4]="SWIFT";<br/>
+    programminglangs[5]="GO";<br/>
+    programminglangs[6]="JAVASCRIPT";<br/>
+    programminglangs[7]="RUBY";<br/>
+    programminglangs[8]="PYTHON";<br/>
+    programminglangs[9]="C++";<br/>
+    for(const dataitem of programminglangs){<br/>
+    var lio=document.createElement("li");<br/>
+    var a=dataitem;<br/>
+    lio.appendChild(document.createTextNode(a));<br/>
+    olo.appendChild(lio);<br/>
+    }<br/>
+    
+    const item1=programminglangs.find(requireditem=>requireditem=="JAVA");<br/>
+    document.getElementById("item1").innerText=item1;<br/>
+    
+    
+    const item2=programminglangs.find((required)=>{<br/>
+        required=="RUST";<br/>
+    })<br/>
+    document.getElementById("item2").innerText=item2;<br/>
+    
+    const item3=programminglangs.find(function(required){<br/>
+         return required=="GO";<br/>
+    })<br/>
+    document.getElementById("item3").innerText=item3;<br/>
+    
+    var a=function(required){<br/>
+        return required=="CLOSURE"<br/>
+    }<br/>
+    const item4=programminglangs.find(a);<br/>
+    document.getElementById("item4").innerText=item4;<br/>
+    &lt;/script&gt;<br/>
+    &lt;body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<!--ARRAY.FIND() METHOD ENDSS HERE -->
+<h3>ARRAY TAKEN</h3>
+<ol>
+    <li>JAVA</li>
+    <li>SCALA</li>
+    <li>DART</li>
+    <li>KOTLIN</li>
+    <li>SWIFT</li>
+    <li>GO</li>
+    <li>JAVASCRIPT</li>
+    <li>RUBY</li>
+    <li>PYTHON</li>
+    <li>C++</li>
+</ol>
+<h3>FINDING OF JAVA:JAVA</h3>
+<h3>FINDING OF RUST:undefined</h3>
+<h3>FINDING OF GO:GO</h3>
+<h3>FINDING OF CLOJURE:undefined</h3>
+
+
+<!--ARRAY FIND INDEX STARTS FROM HERE-->
+<h1 class="red">3.findIndex()</h1>
+<h3>SOURCE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF JAVA:&lt;span id="item1"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3>FINDING INDEX OF RUBY:&lt;span id="item2">&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF GO:&lt;span id="item3"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF JAVASCRIPT:&lt;span id="item4"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+&lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+programminglangs[7]="RUBY";<br/>
+programminglangs[8]="PYTHON";<br/>
+programminglangs[9]="C++";<br/>
+
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+
+const item1=requireditem=>requireditem=="JAVA";<br/>
+document.getElementById("item1").innerText=programminglangs.findIndex(item1);<br/>
+
+
+const item2=(required)=>{required=="RUBY";}<br/>
+document.getElementById("item2").innerText=programminglangs.findIndex(item2);<br/>
+
+const item3=function(required){<br/>
+     return required=="GO";<br/>
+}<br/>
+document.getElementById("item3").innerText=programminglangs.findIndex(item3);<br/>
+
+var a=function(required){<br/>
+    return required=="JAVASCRIPT"<br/>
+}<br/>
+document.getElementById("item4").innerText=programminglangs.findIndex(a);<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<h4>ARRAY TAKEN</h4>
+<ol>
+    <li>JAVA</li>
+    <li>SCALA</li>
+    <li>DART</li>
+    <li>KOTLIN</li>
+    <li>SWIFT</li>
+    <li>GO</li>
+    <li>JAVASCRIPT</li>
+    <li>RUBY</li>
+    <li>PYTHON</li>
+    <li>C++</li>
+</ol>
+
+<h4>FINDING INDEX OF JAVA:0</h4>
+<h4>FINDING INDEX OF RUBY:7</h4>
+<h4>FINDING INDEX OF GO:5</h4>
+<h4>FINDING INDEX OF JAVASCRIPT:6</h4>
+<!--ARRAY FIND INDEX ENDS HERE-->
+<!--4.INDEXOF()-->
+<!--indexOf() method from here-->
+<h1 class="red">4.indexOf()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div calss="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF JAVA:&lt;span id="item1"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF SCALA:&lt;span id="item2"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF DART:&lt;span id="item3"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF KOTLIN:&lt;span id="item4"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF SWIFT:&lt;span id="item5"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF GO:&lt;span id="item6"&gt;&lt;/span>&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF JAVASCRIPT:&lt;span id="item7"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF RUBY:&lt;span id="item8"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF PYTHON:&lt;span id="item9"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;FINDING INDEX OF C++:&lt;span id="item10">&lt;/span&gt;&lt;/h3&gt;<br/>
+&lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+programminglangs[7]="RUBY";<br/>
+programminglangs[8]="PYTHON";<br/>
+programminglangs[9]="C++";<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+document.getElementById("item1").innerText=programminglangs.indexOf("JAVA");<br/>
+document.getElementById("item2").innerText=programminglangs.indexOf("SCALA");<br/>
+document.getElementById("item3").innerText=programminglangs.indexOf("DART");<br/>
+document.getElementById("item4").innerText=programminglangs.indexOf("KOTLIN");<br/>
+document.getElementById("item5").innerText=programminglangs.indexOf("SWIFT");<br/>
+document.getElementById("item6").innerText=programminglangs.indexOf("GO");<br/>
+document.getElementById("item7").innerText=programminglangs.indexOf("JAVASCRIPT");<br/>
+document.getElementById("item8").innerText=programminglangs.indexOf("RUBY");<br/>
+document.getElementById("item9").innerText=programminglangs.indexOf("PYTHON");<br/>
+document.getElementById("item10").innerText=programminglangs.indexOf("C++");<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+
+<h3>ARRAY TAKEN</h3>
+<ol>
+<li>JAVA</li>
+<li>SCALA</li>
+<li>DART</li>
+<li>KOTLIN</li>
+<li>SWIFT</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>RUBY</li>
+<li>PYTHON</li>
+<li>C++</li>
+</ol>
+<h3>FINDING INDEX OF JAVA:0</h3>
+<h3>FINDING INDEX OF SCALA:1</h3>
+<h3>FINDING INDEX OF DART:2</h3>
+<h3>FINDING INDEX OF KOTLIN:3</h3>
+<h3>FINDING INDEX OF SWIFT:4</h3>
+<h3>FINDING INDEX OF GO:5</h3>
+<h3>FINDING INDEX OF JAVASCRIPT:6</h3>
+<h3>FINDING INDEX OF RUBY:7</h3>
+<h3>FINDING INDEX OF PYTHON:8</h3>
+<h3>FINDING INDEX OF C++:9</h3>
+<!--indexOf() method ends here-->
+
+<!--INCLUDES() METHOD FROM HERE-->
+<h1 class="red">5.includes()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES JAVA:&lt;span id="item1"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES SCALA:&lt;span id="item2"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES DART:&lt;span id="item3"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES KOTLIN:&lt;span id="item4"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES SWIFT:&lt;span id="item5"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES GO:&lt;span id="item6"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES JAVASCRIPT:&lt;span id="item7"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES RUBY:&lt;span id="item8"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES PYTHON:&lt;span id="item9"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES C++:&lt;span id="item10"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES MYSQL:&lt;span id="item11"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES MONGODB:&lt;span id="item12"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ARRAY INCLUDES REDIS:&lt;span id="item13"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+&lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="SCALA";<br/>
+programminglangs[2]="DART";<br/>
+programminglangs[3]="KOTLIN";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+programminglangs[7]="RUBY";<br/>
+programminglangs[8]="PYTHON";<br/>
+programminglangs[9]="C++";<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+document.getElementById("item1").innerText=programminglangs.includes("JAVA");<br/>
+document.getElementById("item2").innerText=programminglangs.includes("SCALA");<br/>
+document.getElementById("item3").innerText=programminglangs.includes("DART");<br/>
+document.getElementById("item4").innerText=programminglangs.includes("KOTLIN");<br/>
+document.getElementById("item5").innerText=programminglangs.includes("SWIFT");<br/>
+document.getElementById("item6").innerText=programminglangs.includes("GO");<br/>
+document.getElementById("item7").innerText=programminglangs.includes("JAVASCRIPT");<br/>
+document.getElementById("item8").innerText=programminglangs.includes("RUBY");<br/>
+document.getElementById("item9").innerText=programminglangs.includes("PYTHON");<br/>
+document.getElementById("item10").innerText=programminglangs.includes("C++");<br/>
+document.getElementById("item11").innerText=programminglangs.includes("MYSQL");<br/>
+document.getElementById("item12").innerText=programminglangs.includes("MONGODB");<br/>
+document.getElementById("item13").innerText=programminglangs.includes("REDIS");<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<h3>ARRAY TAKEN</h3>
+<ol>
+<li>JAVA</li>
+<li>SCALA</li>
+<li>DART</li>
+<li>KOTLIN</li>
+<li>SWIFT</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>RUBY</li>
+<li>PYTHON</li>
+<li>C++</li>
+</ol>
+<h3>DOES ARRAY INCLUDES JAVA:true</h3>
+<h3>DOES ARRAY INCLUDES SCALA:true</h3>
+<h3>DOES ARRAY INCLUDES DART:true</h3>
+<h3>DOES ARRAY INCLUDES KOTLIN:true</h3>
+<h3>DOES ARRAY INCLUDES SWIFT:true</h3>
+<h3>DOES ARRAY INCLUDES GO:true</h3>
+<h3>DOES ARRAY INCLUDES JAVASCRIPT:true</h3>
+<h3>DOES ARRAY INCLUDES RUBY:true</h3>
+<h3>DOES ARRAY INCLUDES PYTHON:true</h3>
+<h3>DOES ARRAY INCLUDES C++:true</h3>
+<h3>DOES ARRAY INCLUDES MYSQL:false</h3>
+<h3>DOES ARRAY INCLUDES MONGODB:false</h3>
+<h3>DOES ARRAY INCLUDES REDIS:false</h3>
+<!--5.INCLUDES() METHOD ENDS HERE-->
+
+<!--6.lastIndexOf() starts from here-->
+<h1 class="red">6.lastIndexOf()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+  
+    &lt;h3&gt;LAST INDEX OF GO:&lt;span id="item6"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;LAST INDEX OF JAVASCRIPT:&lt;span id="item7"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;LAST INDEX OF RUBY:&lt;span id="item8"&gt;&lt;/span>&lt;/h3&gt;<br/>
+ 
+&lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="GO";<br/>
+programminglangs[1]="RUBY";<br/>
+programminglangs[2]="GO";<br/>
+programminglangs[3]="JAVASCRIPT";<br/>
+programminglangs[4]="RUBY";<br/>
+programminglangs[5]="GO";<br/>
+programminglangs[6]="JAVASCRIPT";<br/>
+programminglangs[7]="GO";<br/>
+programminglangs[8]="JAVASCRIPT";<br/>
+programminglangs[9]="RUBY";<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+document.getElementById("item6").innerText=programminglangs.lastIndexOf("GO");<br/>
+document.getElementById("item7").innerText=programminglangs.lastIndexOf("JAVASCRIPT");<br/>
+document.getElementById("item8").innerText=programminglangs.lastIndexOf("RUBY");<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<h3></h3>ARRAY TAKEN</h3>
+<ol>
+<li>GO</li>
+<li>RUBY</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>RUBY</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>RUBY</li>
+</ol>
+<h3>LAST INDEX OF GO:7</h3>
+<h3>LAST INDEX OF JAVASCRIPT:8</h3>
+<h3>LAST INDEX OF RUBY:9</h3>
+<!--6.lastIndexOf() ends here-->
+
+<!--7.every() starts from here-->
+<h1 class="red">
+7.every()
+</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+  
+    &lt;h3&gt;Here we are going to find wether all the elements satisfying the given condition&lt;/h3&gt;<br/>
+    &lt;h3&gt;CONDITION:Here we have decided to find whether all the elements are GO&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ALL ITEMS SATISFYING THE CONDITION:&lt;span id="item"&gt;&lt;/span>&lt;/h3&gt;<br/>
+ 
+&lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="GO";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="GO";<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+const items=function(item){ return item=="GO";}<br/>
+document.getElementById("item").innerText=programminglangs.every(items);&gt;<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE SOURCE CODE</h3>
+<h3>ARRAY TAKEN</h3>
+<ol>
+<li>GO</li>
+<li>GO</li>
+<li>GO</li>
+</ol>
+<h3>Here we are going to find wether all the elements satisfying the given condition or not</h3>
+<h3>if one of the element does not satisfy the condition the every method will return false</h3>
+<h3>CONDITION:Here we have decided to find whether all the elements are GO</h3>
+<h3>DOES ALL ITEMS SATISFYING THE CONDITION:true</h3>
+
+<!--7.every() ends here-->
+<!--8.some starts from here-->
+<h1 class="red">8.some()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3>ARRAY TAKEN&lt;/h3&gt;<br/>
+&lt;div id="listing">&lt;/div&gt;<br/>
+  
+    &lt;h3&gt;Here we are going to find wether some atleast one element satisfying the given condition&lt;/h3&gt;<br/>
+    &lt;h3&gt;CONDITION:Here we have decided to find whether all the elements are JAVA&lt;/h3&gt;<br/>
+    &lt;h3&gt;DOES ALL ITEMS SATISFYING THE CONDITION:&lt;span id="item"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;CHECKING THE CODE WITH RUBY:&lt;span id="item2"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+ 
+&lt;script&gt;<br/>
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+let programminglangs=[];<br/>
+programminglangs[0]="JAVA";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="GO";<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+const items=function(item){ return item=="JAVA";}<br/>
+document.getElementById("item").innerText=programminglangs.some(items);<br/>
+const itemss=function(item){ return item=="RUBY";}<br/>
+document.getElementById("item2").innerText=programminglangs.some(itemss);<br/>
+
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<h3>ARRAY TAKEN</h3>
+<ol>
+    <li>JAVA</li>
+    <li>GO</li>
+    <li>GO</li>
+</ol>
+<h3>Here we are going to find wether some atleast one element satisfying the given condition</h3>
+<h3>CONDITION:Here we have decided to find whether all the elements are JAVA</h3>
+<h3>DOES ALL ITEMS SATISFYING THE CONDITION:true</h3>
+<h3>CHECKING THE CODE WITH RUBY:false</h3>
+<!--8.some ends here-->
+
+<!--9.filter() starts from here-->
+<h1 class="red">9.filter()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+    &lt;p>filter() method creates a new array with all thew elements which are passed the give test condition&lt;/p&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+&lt;p>Here we are going filter the elements for which the length of each array element is greater than 3&lt;/p&gt;<br/>
+&lt;div id="listings"&gt;&lt;/div&gt;<br/>
+&lt;p>Here we are going filter the elements for which the length of each array element is greater than 5&lt;/p&gt;<br/>
+&lt;div id="listingss"&gt;&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+
+const listings=document.getElementById("listings");<br/>
+const oloo=document.createElement("ol");<br/>
+listings.appendChild(oloo);<br/>
+
+const listingss=document.getElementById("listingss");<br/>
+const olooo=document.createElement("ol");<br/>
+listingss.appendChild(olooo);<br/>
+
+
+let programminglangs=[];<br/>
+programminglangs[0]="C";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="ADA";<br/>
+programminglangs[3]="RUBY";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="PYTHON";<br/>
+programminglangs[6]="CLOSURE";<br/>
+programminglangs[7]="JAVASCRIPT";<br/>
+
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+
+const requiredelement=programminglangs.filter(function(requiredelement){<br/>
+    if(requiredelement.length>3){<br/>
+        return requiredelement;<br/>
+    }<br/>
+    
+})<br/>
+const requiredelementt=programminglangs.filter(function(requiredelement){<br/>
+    if(requiredelement.length>5){<br/>
+        return requiredelement;<br/>
+    }
+    
+})<br/>
+
+for(const dataitem of requiredelement){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloo.appendChild(lio);<br/>
+}<br/>
+
+for(const dataitem of requiredelementt){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olooo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="codeoutput">
+    <h3>ARRAY TAKEN</h3>
+filter() method creates a new array with all thew elements which are passed the give test condition</h3>
+<ol>
+    <li>C</li>
+    <li>GO</li>
+    <li>ADA</li>
+    <li>RUBY</li>
+    <li>SWIFT</li>
+    <li>PYTHON</li>
+    <li>CLOSURE</li>
+    <li>JAVASCRIPT</li>
+</ol>
+<h3>Here we are going filter the elements for which the length of each array element is greater than 3</h3>
+<ol>
+    <li>RUBY</li>
+    <li>SWIFT</li>
+    <li>PYTHON</li>
+    <li>CLOSURE</li>
+    <li>JAVASCRIPT</li>
+</ol>
+
+<h3>Here we are going filter the elements for which the length of each array element is greater than 5</h3>
+<ol>
+    <li>PYTHON</li>
+    <li>CLOSURE</li>
+    <li>JAVASCRIPT</li>
+</ol>
+</div>
+<!--9.filter() ends here-->
+<!--10.REVERSE() STARTS FROM HERE-->
+<h1 class="red">10.reverse()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+    &lt;p&gt;filter() method creates a new array with all thew elements which are passed the give test condition&lt;/p&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+&lt;p&gt;Here we are going filter the elements for which the length of each array element is greater than 3 in the reverse order&lt;/p&gt;<br/>
+&lt;div id="listings"&gt;&lt;/div&gt;<br/>
+&lt;p&gt;Here we are going filter the elements for which the length of each array element is greater than 5 in the reverse order&lt;/p&gt;<br/>
+&lt;div id="listingss"&gt;&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+
+const listings=document.getElementById("listings");<br/>
+const oloo=document.createElement("ol");<br/>
+listings.appendChild(oloo);<br/>
+
+const listingss=document.getElementById("listingss");<br/>
+const olooo=document.createElement("ol");<br/>
+listingss.appendChild(olooo);<br/>
+
+
+let programminglangs=[];<br/>
+programminglangs[0]="C";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="ADA";<br/>
+programminglangs[3]="RUBY";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="PYTHON";<br/>
+programminglangs[6]="CLOSURE";<br/>
+programminglangs[7]="JAVASCRIPT";<br/>
+
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+
+const requiredelement=programminglangs.filter(function(requiredelement){<br/>
+    if(requiredelement.length>3){<br/>
+        return requiredelement;<br/>
+    }<br/>
+    
+})<br/>
+const requiredelementt=programminglangs.filter(function(requiredelement){<br/>
+    if(requiredelement.length>5){<br/>
+        return requiredelement;<br/>
+    }<br/>
+    
+})<br/>
+requiredelement.reverse();<br/>
+requiredelementt.reverse();<br/>
+for(const dataitem of requiredelement){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloo.appendChild(lio);<br/>
+}<br/>
+
+
+
+for(const dataitem of requiredelementt){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olooo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="codeoutput">
+    <h3>ARRAY TAKEN</h3>
+<h3>filter() method creates a new array with all thew elements which are passed the give test condition</h3>
+<ol>
+    <li>C</li>
+    <li>GO</li>
+    <li>ADA</li>
+    RUBY<li>RUBY</li>
+<li>SWIFT</li>
+<li>PYTHON</li>
+<li>CLOSURE</li>
+<li>JAVASCRIPT</li>
+</ol>
+
+<h3>Here we are going filter the elements for which the length of each array element is greater than 3</h3>
+<ol>
+<li>JAVASCRIPT</li>
+<li>CLOSURE</li>
+<li>PYTHON</li>
+<li>SWIFT</li>
+<li>RUBY</li>
+</ol>
+<h3>Here we are going filter the elements for which the length of each array element is greater than 5</h3>
+<ol>
+<li>JAVASCRIPT</li>
+<li>CLOSURE</li>
+<li>PYTHON</li>
+</ol>
+</div>
+<!--10.REVERSE() ENDS HERE-->
+
+<!--11.sort() from here-->
+<h1 class="red">11.sort()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+    &lt;h3&gt;BEFORE SORTING&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER SORTING&lt;/h3&gt;<br/>
+&lt;div id="listings"&gt;&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+
+const listings=document.getElementById("listings");<br/>
+const oloo=document.createElement("ol");<br/>
+listings.appendChild(oloo);<br/>
+
+let programminglangs=[];<br/>
+programminglangs[0]="C";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="ADA";<br/>
+programminglangs[3]="RUBY";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="PYTHON";<br/>
+programminglangs[6]="CLOSURE";<br/>
+programminglangs[7]="JAVASCRIPT";<br/>
+
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+
+programminglangs.sort()<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="codeoutput">
+    <h3>ARRAY TAKEN</h3>
+<h3>BEFORE SORTING</h3>
+<ol>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>SWIFT</li>
+<li>PYTHON</li>
+<li>CLOSURE</li>
+<li>JAVASCRIPT</li>
+</ol>
+<h3>AFTER SORTING</h3>
+<ol>
+<li>ADA</li>
+<li>C</li>
+<li>CLOSURE</li>
+<li>GO</li>
+<li>JAVASCRIPT</li>
+<li>PYTHON</li>
+<li>RUBY</li>
+<li>SWIFT</li>
+</ol>
+</div>
+<!--11.sort() ends here-->
+<!--12.pop starts from here-->
+<h1 class="red">12.pop()</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+    &lt;h3&gt;BEFORE POPING&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER ONE POP&lt;/h3&gt;<br/>
+&lt;div id="listings"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER  A SECOND POP&lt;/h3&gt;<br/>
+&lt;div id="listingss"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER A THRID POP&lt;/h3&gt;<br/>
+&lt;div id="listingsss"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER A FOURTH POP&lt;/h3&gt;<br/>
+&lt;div id="listingssss"&gt;&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+
+const listings=document.getElementById("listings");<br/>
+const oloo=document.createElement("ol");<br/>
+listings.appendChild(oloo);<br/>
+
+const listingss=document.getElementById("listingss");<br/>
+const olooo=document.createElement("ol");<br/>
+listingss.appendChild(olooo);<br/>
+
+const listingsss=document.getElementById("listingsss");<br/>
+const oloooo=document.createElement("ol");<br/>
+listingsss.appendChild(oloooo);<br/>
+
+const listingssss=document.getElementById("listingssss");<br/>
+const olooooo=document.createElement("ol");<br/>
+listingssss.appendChild(olooooo);<br/>
+
+let programminglangs=[];<br/>
+programminglangs[0]="C";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="ADA";<br/>
+programminglangs[3]="RUBY";<br/>
+programminglangs[4]="SWIFT";<br/>
+programminglangs[5]="PYTHON";<br/>
+programminglangs[6]="CLOSURE";<br/>
+programminglangs[7]="JAVASCRIPT";<br/>
+
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+
+programminglangs.pop()<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloo.appendChild(lio);<br/>
+}<br/>
+programminglangs.pop()<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olooo.appendChild(lio);<br/>
+}<br/>
+programminglangs.pop()<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloooo.appendChild(lio);<br/>
+}<br/>
+programminglangs.pop()<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olooooo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3> 
+<div clas="codeoutput">
+    <h3>ARRAY TAKEN</h3>
+<h3>BEFORE POPING</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>SWIFT</li>
+<li>PYTHON</li>
+<li>CLOSURE</li>
+<li>JAVASCRIPT</li>
+</ol>
+<h3>AFTER ONE POP</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>SWIFT</li>
+<li>PYTHON</li>
+<li>CLOSURE</li>
+</ol>
+<h3>AFTER A SECOND POP</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>SWIFT</li>
+<li>PYTHON</li>
+</ol>
+<h3>AFTER A THRID POP</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>SWIFT</li>
+</ol>
+<h3>AFTER A FOURTH POP</h3>
+<ol>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+</ol>
+</div>
+<!--12.pop ends here-->
+<!--13.PUSH STARTS FROM HERE -->
+<h1 class="red">13.push() Method</h1>
+<h3 class="red">EXAMPLE CODE</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;style&gt;<br/>
+body{<br/>
+background-color:black;<br/>
+color:yellow;<br/>
+} &lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+    &lt;h3&gt;ARRAY TAKEN&lt;/h3&gt;<br/>
+    &lt;h3&gt;BEFORE PUSHING&lt;/h3&gt;<br/>
+&lt;div id="listing"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER PUSHING OF ONE ELEMENT&lt;/h3&gt;<br/>
+&lt;div id="listings"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER PUSHING OF ANOTHER ELEMENT&lt;/h3&gt;<br/>
+&lt;div id="listingss"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER PUSHING OF ANOTHER ELEMENT&lt;/h3&gt;<br/>
+&lt;div id="listingsss"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;AFTER PUSHING OF ANOTHER ELEMENT&lt;/h3&gt;<br/>
+&lt;div id="listingssss"&gt;&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+
+const listing=document.getElementById("listing");<br/>
+const olo=document.createElement("ol");<br/>
+listing.appendChild(olo);<br/>
+
+const listings=document.getElementById("listings");<br/>
+const oloo=document.createElement("ol");<br/>
+listings.appendChild(oloo);<br/>
+
+const listingss=document.getElementById("listingss");<br/>
+const olooo=document.createElement("ol");<br/>
+listingss.appendChild(olooo);<br/>
+
+const listingsss=document.getElementById("listingsss");<br/>
+const oloooo=document.createElement("ol");<br/>
+listingsss.appendChild(oloooo);<br/>
+
+const listingssss=document.getElementById("listingssss");<br/>
+const olooooo=document.createElement("ol");<br/>
+listingssss.appendChild(olooooo);<br/>
+
+let programminglangs=[];<br/>
+programminglangs[0]="C";<br/>
+programminglangs[1]="GO";<br/>
+programminglangs[2]="ADA";<br/>
+programminglangs[3]="RUBY";<br/>
+
+
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olo.appendChild(lio);<br/>
+}<br/>
+
+programminglangs.push("MYSQL")<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloo.appendChild(lio);<br/>
+}<br/>
+programminglangs.push("JAVASCRIPT")<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olooo.appendChild(lio);<br/>
+}<br/>
+programminglangs.push("CLOJURE")<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+oloooo.appendChild(lio);<br/>
+}<br/>
+programminglangs.push("TYPESCRIPT")<br/>
+for(const dataitem of programminglangs){<br/>
+var lio=document.createElement("li");<br/>
+var a=dataitem;<br/>
+lio.appendChild(document.createTextNode(a));<br/>
+olooooo.appendChild(lio);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="codeoutput">
+    <h3>ARRAY TAKEN</h3>
+<h3>BEFORE PUSHING</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+</ol>
+<h3>AFTER PUSHING OF ONE ELEMENT</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>MYSQL</li>
+</ol>
+<h3>AFTER PUSHING OF ANOTHER ELEMENT</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>MYSQL</li>
+<li>JAVASCRIPT</li>
+</ol>
+<h3>AFTER PUSHING OF ANOTHER ELEMENT</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>MYSQL</li>
+<li>JAVASCRIPT</li>
+<li>CLOJURE</li>
+</ol>
+<h3>AFTER PUSHING OF ANOTHER ELEMENT</h3>
+<ol>
+<li>C</li>
+<li>GO</li>
+<li>ADA</li>
+<li>RUBY</li>
+<li>MYSQL</li>
+<li>JAVASCRIPT</li>
+<li>CLOJURE</li>
+<li>TYPESCRIPT</li>
+</ol>
+</div>
+<!--13.PUSH ENDS HERE -->
+<!--14.ARRAY CONCAT() METHOD STARTS FROM HERE-->
+<h1 id="red">14.concat() Method</h1>
+<h3 id="red">EXAMPLE CODE OF THE CONCAT METHOD</h3>
+<div id="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head>&lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+&lt;h3&gt;ORIGINAL ARRAYS&lt;/h3&gt;<br/>
+&lt;h4&gt;ARRAY 1&lt;/h4&gt;<br/>
+&lt;div&gt;<br/>
+    &lt;ol id="itemoneol"&gt;&lt;/ol&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;h4&gt;ARRAY 2&lt;/h4&gt;<br/>
+&lt;div&gt;<br/>
+&lt;ol id="itemtwool"&gt;&lt;/ol&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;h4AFTER CONCATINATION OF ARRAYS&lt;/h4&gt;<br/>
+&lt;div&gt;<br/>
+&lt;ol id="itemthreeol"&gt;<br/>
+
+&lt;/ol&gt;<br/>
+
+&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+        const myol=document.getElementById("itemoneol");<br/>
+        const myolo=document.getElementById("itemtwool");<br/>
+        const myoloo=document.getElementById("itemthreeol");<br/>
+
+var a=new Array("javascript","ruby");<br/>
+var b=new Array("python","go");<br/>
+for(const i of a){<br/>
+    var aa=document.createElement("li");<br/>
+    aa.appendChild(document.createTextNode(i))<br/>
+    myol.appendChild(aa);<br/>
+}<br/>
+
+for(const i of b){<br/>
+    var aa=document.createElement("li");<br/>
+    aa.appendChild(document.createTextNode(i))<br/>
+    myolo.appendChild(aa);<br/>
+}<br/>
+var c=a.concat(b);<br/>
+for(const i of c){<br/>
+    var aa=document.createElement("li");<br/>
+    aa.appendChild(document.createTextNode(i))<br/>
+    myoloo.appendChild(aa);<br/>
+}<br/>
+&lt;/script&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 id="red">OUTPUT OF THE ABOVE CODE</h3>
+<div id="codeoutput">
+    <h3>ORIGINAL ARRAYS</h3>
+<h3>ARRAY 1</h3>
+<ol>
+<li>javascript</li>
+<li>ruby</li>
+</ol>
+<h3>ARRAY 2</h3>
+<ol>
+<li>python</li>
+<li>go</li>
+</ol>
+<h3>AFTER CONCATINATION OF ARRAYS</h3>
+<ol>
+<li>javascript</li>
+<li>ruby</li>
+<li>python</li>
+<li>go</li>
+</ol>
+</div>
+<!--14.ARRAY CONCAT() METHOD ENDS HERE-->
+
+<!--15.map() method starts from here-->
+<h1 id="red">15.map()</h1>
+<p>map() function applies the given function on every element of the array and returns the new array</p>
+<h3 class="red">EXAMPLE CODE OF THE MAP METHOD</h3>
+<div id="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head&gt;&lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+        &lt;h3&gt;ARRAY BEFORE APPLYING OF THE MAP METHOD&lt;/h3&gt;<br/>
+&lt;div id="item"&gt;<br/>
+    &lt;ol id="itemol"&gt;<br/>
+
+    &lt;/ol&gt;<br/>
+    &lt;H3&gt;ARRAY AFTER APPLYING OF THE MAP METHOD&lt;/H3&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;div id="itemone"&gt;<br/>
+    &lt;ol id="itemoneol"&gt;<br/>
+
+    &lt;/ol&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+const itemol=document.getElementById("itemol");<br/>
+const itemoneol=document.getElementById("itemoneol");<br/>
+
+var myArray=new Array("c","c++","java","javascript","ruby","python","go","kotlin");<br/>
+
+for(let i=0;i<myArray.length;i++){<br/>
+    var aa=document.createElement("li");<br/>
+    aa.appendChild(document.createTextNode(myArray[i]))<br/>
+    itemol.appendChild(aa)<br/>
+}<br/>
+<br/>
+var myArraymapped=myArray.map(function(item){<br/>
+    return item.toUpperCase();<br/>
+});<br/>
+
+for(let i=0;i<myArraymapped.length;i++){<br/>
+    var aa=document.createElement("li")<br/>
+    aa.appendChild(document.createTextNode(myArraymapped[i]))<br/>
+    itemoneol.appendChild(aa)<br/>
+}
+        &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE ABOVE CODE</h3>
+<div class="codeoutput">
+    <h3>ARRAY BEFORE APPLYING OF THE MAP METHOD</h3>
+    <ol>
+    <li>c</li>
+
+    <li>c++</li>
+    <li>java</li>
+    <li>javascript</li>
+    <li>ruby</li>
+    <li>python</li>
+    <li>go</li>
+    <li>kotlin</li>
+</ol>
+    <h3>ARRAY AFTER APPLYING OF THE MAP METHOD</h3>
+    <ol>
+    <li>C</li>
+    <li>C++</li>
+    <li>JAVA</li>
+    <li>JAVASCRIPT</li>
+    <li>RUBY</li>
+    <li>PYTHON</li>
+    <li>GO</li>
+    <li>KOTLIN</li>
+</ol>
+</div>
+<!--15.map() method ends here-->
+<!--16.forEach() method  starts from here-->
+<h1 class="red">16.forEach() Method</h1>
+<p>forEach() method executes the given function on the Array Elements for once</p>
+<h3 class="red">EXAMPLE CODE OF THE forEach() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head>&lt;/head&gt;<br/>
+    &lt;body&gt;
+        &lt;h3&gt;ARRAY BEFORE APPLYING OF THE forEach METHOD&lt;/h3&gt;<br/>
+&lt;div id="item"&gt;<br/>
+    &lt;ol id="itemol"&gt;<br/>
+
+    &lt;/ol&gt;<br/>
+    &lt;H3>ARRAY AFTER APPLYING OF THE forEach METHOD&lt;/H3&gt;<br/>
+&lt;/div><br/>
+&lt;div id="itemone"&gt;<br/>
+    &lt;ol id="itemoneol"&gt;<br/>
+
+    &lt;/ol&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;script&gt;<br/>
+const itemol=document.getElementById("itemol");<br/>
+const itemoneol=document.getElementById("itemoneol");<br/>
+
+var myArray=new Array("c","c++","java","javascript","ruby","python","go","kotlin");<br/>
+
+for(let i=0;i<myArray.length;i++){<br/>
+    var aa=document.createElement("li");<br/>
+    aa.appendChild(document.createTextNode(myArray[i]))<br/>
+    itemol.appendChild(aa)<br/>
+}<br/>
+let upperArray=[];<br/>
+myArray.forEach(function(item){<br/>
+    return upperArray.push(item.toUpperCase());<br/>
+});<br/>
+
+for(let i=0;i<upperArray.length;i++){<br/>
+    var aa=document.createElement("li")<br/>
+    aa.appendChild(document.createTextNode(upperArray[i]))<br/>
+    itemoneol.appendChild(aa)<br/>
+}<br/>
+        &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE forEach() MMETHOD EXAMPLE CODE</h3>
+<div class="codeoutput">
+    <h3>ARRAY BEFORE APPLYING OF THE forEach METHOD</h3>
+    <ol>
+    <li>c</li>
+    <li>c++</li>
+<li>java</li>
+    <li>javascript</li>
+    <li>ruby</li>
+    <li>python</li>
+    <li>go</li>
+    <li>kotlin</li>
+</ol>
+    <h3>ARRAY AFTER APPLYING OF THE forEach METHOD</h3>
+    <ol>
+<li>C</li>
+<li>C++</li>
+    <li>JAVA</li>
+    <li>JAVASCRIPT</li>
+    <li>RUBY</li>
+    <li>PYTHON</li>
+    <li>GO</li>
+    <li>KOTLIN</li>
+</ol>
+</div>
+<!--16.forEach() method ends here-->
+
+<!--17.values METHOD STARTS FROM HERE-->
+<h1 class="red">17.values Method</h1>
+<p>values method of the JAVASCRIPT return the iterator object,the iterator which was retured by the values method<br/>
+will contains the array items for the each index of the array
+</p>
+
+
+<h3 class="red">EXAMPLE CODE OF THE VALUES METHOD</h3>
+<div class="sourcecode">
+
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;&lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;h3&gt;ACCESSING ARRAY ELEMENTS USING OF THE VALUES METHOD&lt;/h3&gt;<br/>
+    &lt;div id="item"&gt;<br/>
+        &lt;ol id="itemol"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    
+    &lt;script&gt;<br/>
+    const itemol=document.getElementById("itemol");<br/>
+    var myArray=new Array("c","c++","java","javascript","ruby","python","go","kotlin");<br/>
+    var myValues=myArray.values()<br/>
+    for(const i of myValues){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        itemol.appendChild(aa);<br/>
+    }<br/>
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;
+    &lt;/html&gt;<br/>
+
+
+
+
+</div>
+<h3 class="red">OUTPUT OF THE VALUE METHOD CODE</h3>
+<div class="codeoutput">
+
+   <h3> ACCESSING ARRAY ELEMENTS USING OF THE VALUES METHOD</h3>
+   <ol>
+    <li>c</li>
+    <li>c++</li>
+    <li>java</li>
+    <li>javascript</li>
+    <li>ruby</li>
+    <li>python</li>
+    <li>go</li>
+    <li>kotlin</li>
+</ol>
+</div>
+<!--17.values METHOD ENDS  HERE-->
+<!--18,19 Method starts from here-->
+<h1 class="red">18.shift() and 19.unShift()</h1>
+<p>shift() method removes the element from the beggining from the Array and returns the removed item<br/>
+unshift() method adds the element at the beggining of the array and 
+<br/>after adding 
+of the element at the beggining of the Array it returns the length
+</p>
+<h3 class="red">EXAMPLE CODE OF THE ABOVE METHOD </h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;&lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;h3&gt;ACCESSING ARRAY ELEMENTS USING OF THE VALUES METHOD WITHOUT APPLYING OF THE SHIFTING OPERATION&lt;/h3&gt;<br/>
+    &lt;div id="item"&gt;<br/>
+        &lt;ol id="itemol"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h3&gt;ARRAY ELEMENTS AFTER APPLYING OF THE SHIFT OPERATION&lt;/h3&gt;<br/>
+    &lt;div class="itemone"&gt;<br/>
+        &lt;ol id="itemoneol"&gt;<br/>
+    
+        &lt;/ol&gt;
+        &lt;h3&gt;ELEMENT THAT WAS SHIFTED:&lt;span id="shiftedelement"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h3&gt;ARRAY ELEMENTS AFTER APPLYING OF THE SHIFT OPERATION AGAIN&lt;/h3&gt;<br/>
+    &lt;div class="itemtwo"&gt;<br/>
+        &lt;ol id="itemtwool"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+        &lt;h3&gt;ELEMENT THAT WAS SHIFTED:&lt;span id="shiftedelementt"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h3&gt;ARRAY ELEMENTS AFTER APPLYING OF THE UNSHIFT OPERATION &lt;/h3&gt;<br/>
+    &lt;div class="itemthree"&gt;<br/>
+        &lt;ol id="itemthreeol"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+        &lt;p&gt;unshift() method the length of the Array after appending of the element at the top of the Array&lt;/p&gt;<br/>
+        &lt;h3&gt;LENGTH AFTER UNSHIFT:&lt;span id="unshiftedone"&gt;&lt;/span>&lt;/h3&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h3&gt;ARRAY ELEMENTS AFTER APPLYING OF THE UNSHIFT OPERATION AGAIN &lt;/h3&gt;<br/>
+    &lt;div class="itemfour"&gt;<br/>
+        &lt;ol id="itemfourol"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+        &lt;h3&gt;LENGTH AFTER UNSHIFT:&lt;span id="unshiftedtwo"&gt;&lt;/span>&lt;/h3&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;script&gt;<br/>
+    const itemol=document.getElementById("itemol");<br/>
+    const itemoneol=document.getElementById("itemoneol");<br/>
+    const itemtwool=document.getElementById("itemtwool");<br/>
+    const itemthreeol=document.getElementById("itemthreeol");<br/>
+    const itemfourol=document.getElementById("itemfourol");<br/>
+    const shiftedelement=document.getElementById("shiftedelement")<br/>
+    
+    var myArray=new Array("c","c++","java","javascript","ruby","python","go","kotlin");<br/>
+    
+    var myValues=myArray;<br/>
+    for(const i of myValues){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        itemol.appendChild(aa);<br/>
+    }<br/>
+    
+    
+    const shiftedArryone=myArray.shift()<br/>
+    shiftedelement.innerText=shiftedArryone;<br/>
+    for(const i of myArray){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        itemoneol.appendChild(aa);<br/>
+    }<br/>
+    
+    const shiftedArraytwo=myArray.shift()<br/>
+    document.getElementById("shiftedelementt").innerText=shiftedArraytwo;<br/>
+    for(const i of myArray){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        itemtwool.appendChild(aa);<br/>
+    }<br/>
+    
+    const unshifted=myArray.unshift("c++")<br/>
+    document.getElementById("unshiftedone").innerText=unshifted;<br/>
+    
+    for(const i of myArray){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        itemthreeol.appendChild(aa);<br/>
+    }<br/>
+    
+    const unshiftedtwo=myArray.unshift("c")<br/>
+    document.getElementById("unshiftedtwo").innerText=unshiftedtwo;<br/>
+    for(const i of myArray){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        itemfourol.appendChild(aa);<br/>
+    }<br/>
+            &lt;/script&gt;<br/>
+    
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE METHOD CODE</h3>
+<div class="codeoutput">
+    <h3>ACCESSING ARRAY ELEMENTS USING OF THE VALUES METHOD WITHOUT APPLYING OF THE SHIFTING OPERATION</h3>
+    <ol>
+    c<li>c</li>
+    c++<li>c++</li>
+    java<li>java</li>
+    javascript<li>javascript</li>
+    ruby<li>ruby</li>
+    python<li>python</li>
+    go<li>go</li>
+    kotlin<li>kotlin</li>
+</ol>
+    <h3>ARRAY ELEMENTS AFTER APPLYING OF THE SHIFT OPERATION</h3>
+    <ol>
+    c++<li>c++</li>
+    java<li>java</li>
+    javascript<li>javascript</li>
+    ruby<li>ruby</li>
+    python<li>python</li>
+    go<li>go</li>
+    kotlin<li>kotlin</li>
+</ol>
+    <h3>ELEMENT THAT WAS SHIFTED:c</h3>
+    <h3>ARRAY ELEMENTS AFTER APPLYING OF THE SHIFT OPERATION AGAIN</h3>
+    <ol>
+    java<li>java</li>
+    javascript<li>javascript</li>
+    ruby<li>ruby</li>
+    python<li>python</li>
+    go<li>go</li>
+    kotlin<li>kotlin</li>
+</ol>
+    <h3>ELEMENT THAT WAS SHIFTED:c++</h3>
+    <h3>ARRAY ELEMENTS AFTER APPLYING OF THE UNSHIFT OPERATION</h3>
+    <ol>
+    c++<li>c++</li>
+    java<li>java</li>
+    javascript<li>javascript</li>
+    ruby<li>ruby</li>
+    python<li>python</li>
+    go<li>go</li>
+    kotlin<li>kotlin</li>
+</ol>
+    unshift() method the length of the Array after appending of the element at the top of the Array
+    
+    <h3>LENGTH AFTER UNSHIFT:7</h3>
+    <h3>ARRAY ELEMENTS AFTER APPLYING OF THE UNSHIFT OPERATION AGAIN</h3>
+    <ol>
+    c<li>c</li>
+    c++<li>c++</li>
+    java<li>java</li>
+    javascript<li>javascript</li>
+    ruby<li>ruby</li>
+    python<li>python</li>
+    go<li>go</li>
+    kotlin<li>kotlin</li>
+</ol>
+    <h3>LENGTH AFTER UNSHIFT:8</h3>
+</div>
+<!-- 18.19 method ends here-->
+<!--20.toString starts from here-->
+<h1 class="red">20.toString() Method</h1>
+<p>toString() method converts the given array into String</p>
+<h3 class="red">EXAMPLE CODE OF THE toStrin() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+    &lt;head>&lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+
+&lt;h3&gt;GIVEN ARRAY&lt;/h3&gt;<br/>
+&lt;div id="listings"&gt;<br/>
+    &lt;ol id="listing">&lt;/ol&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;h3&gt;STRING CONVERTED ARRAY&lt;/h3&gt;<br/>
+&lt;div id="item"&gt;&lt;/div&gt;<br/>
+&lt;h3&gt;TYPE OF STRING CONNECTED ARRAY:&lt;span id="itemm">&lt;/span>&lt;/h3&gt;<br/>
+&lt;script&gt;
+            const listing=document.getElementById("listing");<br/>
+
+var myArray=new Array("c","c++","java","javascript")<br/>
+for(let i=0;i<myArray.length;i++){<br/>
+    var aa=document.createElement("li");<br/>
+    aa.appendChild(document.createTextNode(myArray[i]))<br/>
+    listing.appendChild(aa)<br/>
+}<br/>
+
+var myArrayString=myArray.toString();<br/>
+document.getElementById("item").innerText=myArrayString;<br/>
+document.getElementById("itemm").innerText=typeof myArrayString;<br/>
+
+        &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE toStrin() METHOD EXAMPLE</h3>
+<div class="codeoutput">
+    <h3>GIVEN ARRAY</h3>
+    <ol>
+<li>c</li>
+<li>c++</li>
+<li>java</li>
+<li>javascript</li>
+</ol>
+<h3>STRING CONVERTED ARRAY</h3>
+<p>c,c++,java,javascript</p>
+<h3>TYPE OF STRING CONNECTED ARRAY:string</h3>
+</div>
+<!--20.toString ends here-->
+<!--21.slice() method starts from here-->
+<h1 class="red">21.slice() Method</h1>
+<h3 class="red">EXAMPLE CODE OF THE SLICE() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;&lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+    
+    &lt;h3&gt;GIVEN ARRAY&lt;/h3&gt;<br/>
+    &lt;div id="listings"&gt;<br/>
+        &lt;ol id="listing"&gt;&lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h3&gt;STRING CONVERTED SPLICED ARRAY&lt;/h3&gt;<br/>
+    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+    &lt;h3&gt;TYPE OF STRING CONNECTED ARRAY:&lt;span id="itemm"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+            &lt;script&gt;<br/>
+                const listing=document.getElementById("listing");<br/>
+    
+    var myArray=new Array("c","c++","java","javascript")<br/>
+    var sliced=myArray.slice(0,3)<br/>
+    for(let i=0;i<myArray.length;i++){<br/>
+        var aa=document.createElement("li");<br/>
+        aa.appendChild(document.createTextNode(myArray[i]))<br/>
+        listing.appendChild(aa)<br/>
+    }<br/>
+    
+    var myArrayString=sliced.toString();<br/>
+    document.getElementById("item").innerText=myArrayString;<br/>
+    document.getElementById("itemm").innerText=typeof myArrayString;<br/>
+    
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE EXAMPLE CODE OF SLICE() METHOD</h3>
+<div class="codeoutput">
+    <h3>GIVEN ARRAY</h3>
+    <ol>
+    <li>c</li>
+    <li>c++</li>
+    <li>java</li>
+    <li>javascript</li>
+</ol>
+    <h3>STRING CONVERTED SPLICED ARRAY</h3>
+    <p>c,c++,java</p>
+    <h3>TYPE OF STRING CONNECTED ARRAY:string</h3>
+</div>
+<!--21.slice() method ends here-->
+<!--22. splice() method starts from here-->
+<h1 class="red">22.splice() Method</h1>
+<h3 class="red">EXAMPLE CODE OF THE splice() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;&lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+    
+    &lt;h3&gt;TAKEN ARRAY&lt;/h3&gt;<br/>
+    &lt;div id="item"&gt;<br/>
+        &lt;ol id="itemol"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h3&gt;AFTER ADDING THE ELEMENTS USING SPLICE TO ARRAY&lt;/h3&gt;<br/>
+    &lt;div&gt;<br/>
+        &lt;ol id="itemoneol"&gt;&lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    
+    &lt;h3&gt;ADDING THE TWO ELEMENTS USING SPLICE&lt;/h3&gt;<br/>
+    &lt;div&gt;<br/>
+        &lt;ol id="itemtwool"&gt;<br/>
+    
+        &lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    
+            &lt;script&gt;<br/>
+                const itemol=document.getElementById("itemol")<br/>
+                const itemoneol=document.getElementById("itemoneol")<br/>
+                const itemtwool=document.getElementById("itemtwool")<br/>
+    
+    
+               var myArray=new Array("python") <br/>
+               for(let i=0;i<myArray.length;i++){<br/>
+                   var aa=document.createElement("li")<br/>
+                   aa.appendChild(document.createTextNode(myArray[i]))<br/>
+                   itemol.appendChild(aa)<br/>
+               }<br/>
+               myArray.splice(1,1,"java")<br/>
+               for(let i=0;i<myArray.length;i++){<br/>
+                   var aa=document.createElement("li")<br/>
+                   aa.appendChild(document.createTextNode(myArray[i]))<br/>
+                   itemoneol.appendChild(aa)<br/>
+               }<br/>
+               myArray.splice(4,2,"javascript")<br/>
+               for(let i=0;i<myArray.length;i++){<br/>
+                   var aa=document.createElement("li")<br/>
+                   aa.appendChild(document.createTextNode(myArray[i]))<br/>
+                   itemtwool.appendChild(aa)<br/>
+               }<br/>
+    
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE splice() METHOD EXAMPLE CODE</h3>
+<div class="codeoutput">
+    <h3>TAKEN ARRAY</h3>
+    <ol><li>python</li></ol>
+    <h3>AFTER ADDING THE ELEMENTS USING SPLICE TO ARRAY</h3>
+    <ol>
+    <li>python</li>
+    <li>java</li>
+</ol>
+    <h3>ADDING THE TWO ELEMENTS USING SPLICE</h3>
+    <ol>
+    <li>python</li>
+    <li>java</li>
+    <li>javascript</li>
+</ol>
+</div>
+<!--22. splice() method ends here-->
+<!--23.join() method starts from here-->
+<h1 class="red">23.join() Method</h1>
+<h3 class="red">EXAMPLE CODE OF THE JOIN() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+    
+    
+        &lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;h3&gt;TAKEN ARRAY&lt;/h3&gt;<br/>
+            &lt;div id="listings"&gt;<br/>
+                &lt;ol id="listing"&gt;<br/>
+    
+                &lt;/ol&gt;<br/>
+            &lt;/div&gt;<br/>
+    &lt;h3&gt;THE OUTPUT OF THE JOIN() METHOD WITH OUT SPECIFYING ANY PARAMETER ARRAY.JOIN("")&lt;/h3&gt;<br/>
+    &lt;p&gt;if we have not specified anything as a attribute it simply concates everything in the Array&lt;/p&gt;<br/>
+            &lt;div id="item"&gt;<br/>
+                
+    
+    
+    
+            &lt;/div&gt;<br/>
+            &lt;h3&gt;HERE I AM SPECIFYING ---> AS A SEPERATOR TO JOIN("--->")&lt;/h3&gt;<br/>
+            &lt;div id="itemm">&lt;/div&gt;<br/>
+            &lt;script&gt;<br/>
+                var myArray=new Array("c","c++","java","javascript","go","python")<br/>
+                var listing=document.getElementById("listing")<br/>
+                for(let i=0;i<myArray.length;i++){<br/>
+                    var aa=document.createElement("li")<br/>
+                    aa.appendChild(document.createTextNode(myArray[i]))<br/>
+                    listing.appendChild(aa)<br/>
+                }<br/>
+    
+    
+                var myArrayjoin=myArray.join("")<br/>
+    document.getElementById("item").innerText=myArrayjoin;<br/>
+    
+                var myArrayjoinn=myArray.join(" --->")<br/>
+    document.getElementById("itemm").innerText=myArrayjoinn;<br/>
+    
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE JOIN() METHOD EXAMPLE CODE</h3>
+<div class="codeoutput">
+   <h3> TAKEN ARRAY</h3>
+   <ol>
+    <li>c</li>
+    <li>c++</li>
+    <li>java</li>
+    <li>javascript</li>
+    <li>go</li>
+    <li>python</li>
+</ol>
+    <h3>THE OUTPUT OF THE JOIN() METHOD WITH OUT SPECIFYING ANY PARAMETER ARRAY.JOIN("")</h3>
+    <h2>if we have not specified anything as a attribute it simply concates everything in the Array</h2>
+    
+    <p>cc++javajavascriptgopython</p>
+   <h3> HERE I AM SPECIFYING ---> AS A SEPERATOR TO JOIN("--->")</h3>
+    <p>c --->c++ --->java --->javascript --->go --->python</p>
+</div>
+<!--23.join() method ends here-->
+<!--24.fill() method starts from here-->
+<h1 class="red">24.fill() METHOD</h1>
+<p>fill() methods fills the reqired element in the required locations or from the particular location to till the end<br/></p>
+<h3 class="red">EXAMPLE CODE OF THE FILL() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+            &lt;h3&gt;We have created an empty array of 10 times by
+                 using fill method we have filled the 0 from the 0th index&lt;/h3&gt;<br/>
+    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+    &lt;h2&gt;Now we are going to fill the array from index 4 to the end with 3&lt;/h2&gt;<br/>
+    &lt;div id="itemm"&gt;&lt;/div&gt;<br/>
+        &lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;script&gt;<br/>
+              var myArray=new Array(10)<br/>
+              myArray.fill(0,0)<br/>
+              document.getElementById("item").innerText=myArray.toString();<br/>
+    myArray.fill(3,4)<br/>
+    document.getElementById("itemm").innerText=myArray.toString();<br/>
+    
+    
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE EXAMPLE CODE OF THE FILL() METHOD</h3>
+<div class="codeoutput">
+<h3>We have created an empty array of 10 times by using fill method we have filled the 0 from the 0th index</h3>
+ <h4>0,0,0,0,0,0,0,0,0,0</h4>
+    <h3>Now we are going to fill the array from index 4 to the end with 3</h3>
+    <h4>0,0,0,0,3,3,3,3,3,3</h4>
+</div>
+<!--24.fill() method ends here-->
+<!--25 copyWithIn method starts from here-->
+<h1 class="red">25.copyWithIn METHOD</h1>
+<h3 class="red">EXAMPLE CODE FOR THE copyWithIn METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+    &lt;head&gt;<br/>
+    
+    &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+        &lt;p>here i have created the empty array with the 15 elements&lt;br/&gt;<br/>
+            i have assigned all the elements to the zero by using of the fill() method&lt;br/&gt;<br/>
+        &lt;/p&gt;<br/>
+        &lt;div id="item"&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;p>now we are going to move the assigned elements with in the array by using of the copyWithIn method&lt;/p&gt;<br/>
+        &lt;div id="itemm"&gt;&lt;/div&gt;<br/>
+        &lt;script&gt;<br/>
+    
+    var myArray=new Array(15)<br/>
+    myArray.fill(0,0)<br/>
+    myArray[0]="c";<br/>
+    myArray[1]="c++";<br/>
+    myArray[2]="java";<br/>
+    myArray[3]="javascript";<br/>
+    myArray[4]="python";<br/>
+    myArray[5]="ruby";<br/>
+    document.getElementById("item").innerText=myArray.toString();<br/>
+    myArray.copyWithin(14,2)<br/>
+    myArray.copyWithin(13,3)<br/>
+    myArray.copyWithin(10,0,4)<br/>
+    myArray.copyWithin(6,2,5)<br/>
+    document.getElementById("itemm").innerText=myArray.toString();<br/>
+        &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE copyWithin EXAMPLE CODE</h3>
+<div class="codeoutput">
+    <h3>here i have created the empty array with the 15 elements</h3>
+    <h3>i have assigned all the elements to the zero by using of the fill() method</h3>
+    <h3>c,c++,java,javascript,python,ruby,0,0,0,0,0,0,0,0,0</h3>
+    <h3>now we are going to move the assigned elements with in the array by using of the copyWithIn method</h3>
+    
+   <h3>c,c++,java,javascript,python,ruby,java,javascript,python,0,c,c++,java,javascript,python</h3>
+</div>
+<!--25 copyWithIn method ends here-->
+<!--26.at method starts from here-->
+<h1 class="red">26.to METHOD</h1>
+<h3 class="red">EXAMPLE CODE FOR THE to METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+    
+        &lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;h3&gt;at method takes the input and returns the element at the particular index&lt;/h3&gt;<br/>
+            &lt;h3&gt;ARRAY WE HAVE TAKEN&lt;/h3&gt;<br/>
+            &lt;div id="item"&gt;&lt;/div&gt;<br/>
+            &lt;h3&gt;FINDING INDEX OF THE PYTHON:&lt;span id="itemm"&gt;&lt;/span&gt;&lt;/h3&gt;<br/>
+            &lt;h3&gt;FINDING THE ELEMENT AT THE INDEX 2 USING AT() METHOD:&lt;span id="itemmm">&lt;/span>&lt;/h3&gt;<br/>
+    
+            &lt;script&gt;<br/>
+                var myArray=new Array("c","c++","python","javascript","java"&gt;<br/>
+    document.getElementById("item").innerText=myArray.toString()&gt;<br/>
+    document.getElementById("itemm").innerText=myArray.indexOf("python")&gt;<br/>
+    document.getElementById("itemmm").innerText=myArray.at(2)&gt;<br/>
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE EXAMPLE CODE OF THE to METHOD</h3>
+<div class="codeoutput">
+    <h3>at method takes the input and returns the element at the particular index</h3>
+   <h3> ARRAY WE HAVE TAKEN</h3>
+    <H3>c,c++,python,javascript,java</H3>
+    <h3>FINDING INDEX OF THE PYTHON:2</h3>
+    <h3>FINDING THE ELEMENT AT THE INDEX 2 USING AT() METHOD:python</h3>
+</div>
+<!--26.at method ends here-->
+
+<!--27.flat() method starts from here-->
+<h1 class="red">27.flat() METHOD</h1>
+<h3>
+flat() method produces the new array after concatinating  all the sub-arrays which are in it<br/>
+flat() method works recursively<br/>
+we can reduce the subarrays to the original array to the required depth<br/>
+</h3>
+<h3 class="red">EXAMPLE CODE OF THE FLAT METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+    
+        &lt;/head&gt;<br/>
+    <body&gt;<br/>
+    &lt;h3&gt;CONSOLE OUTPUT OF THE ARRAY&lt;/h3&gt;<br/>
+    &lt;h2&gt;i have used console.log(array) here&lt;/h2&gt;<br/>
+    &lt;h3&gt;OUTPUT:&lt;span id="itemm"&gt;&lt;br/&gt;<br/>
+        ['c', 'c++', Array(2)]&lt;br/&gt;<br/>
+        &lt;/span&gt;&lt;/h3&gt;<br/>
+       
+    &lt;h3>AFTER APPLYING FALT TO THE GIVEN ARRAY array=array.flat() AND THE CONSOLE OUTPUT LOOOKS LIKE AS&lt;/h3&gt;<br/>
+    &lt;h3>FLAT APPLIED OUTPUT:<span id="flatted">&lt;br/&gt;<br/>
+        ['c', 'c++', 'java', 'javascript']&lt;br/&gt;<br/>
+    &lt;/span&gt;&lt;/h3&gt;<br/>
+    &lt;h3&gt;ARRAY THAT WE HAVE TAKEN:[[[[[[[[[[[[[[[[[[[["c","c++","java","javascript"]]]]]]]]]]]]]]]]]]]] and its console output&lt;/h3&gt;<br/>
+    &lt;h3&gt;<br/>
+        NODE:item after &gt; was expanded from the obtained output<br/>
+        output:[Array(1)]&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: Array(1)&lt;br/&gt;<br/>
+    &gt;0: (4) ['c', 'c++', 'java', 'javascript']<br/>
+    &lt;/h3&gt;<br/>
+    &lt;h3&gt;OUTPUT OF THE ABOVE ARRAY AFTER APPLYING OF array2=array2.flat(19)&lt;/h3&gt;<br/>
+    &lt;h3&gt;OUTPUT:['c', 'c++', 'java', 'javascript']&lt;/h3&gt;<br/>
+        &lt;script&gt;<br/>
+           var array=["c","c++",["java","javascript"]]<br/>
+           console.log(array)<br/>
+           array=array.flat()<br/>
+           console.log(array)<br/>
+           var array2=[[[[[[[[[[[[[[[[[[[["c","c++","java","javascript"]]]]]]]]]]]]]]]]]]]]<br/>
+           console.log(array2)<br/>
+           array2=array2.flat(19)<br/>
+           console.log(array2)<br/>
+        &lt;/script&gt;<br/>
+    &lt;/body&gt;<br/>
+        &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE EXAMPLE CODE OF THE FLAT METHOD</h3>
+<div class="codeoutput">
+    <h4>CONSOLE OUTPUT OF THE ARRAY</h4>
+    <h4>i have used console.log(array) here</h4>
+    <h4>OUTPUT:</h4>
+    <h4>['c', 'c++', Array(2)]</h4>
+    <h4>AFTER APPLYING FALT TO THE GIVEN ARRAY array=array.flat() AND THE CONSOLE OUTPUT LOOOKS LIKE AS</h4>
+    <h4>FLAT APPLIED OUTPUT:</h4>
+    <h4>['c', 'c++', 'java', 'javascript']</h4>
+    <h4>ARRAY THAT WE HAVE TAKEN:[[[[[[[[[[[[[[[[[[[["c","c++","java","javascript"]]]]]]]]]]]]]]]]]]]] and its console output</h4>
+    <h4>NODE:item after > was expanded from the obtained output output:[Array(1)]</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: Array(1)</h4>
+    <h4>>0: (4) ['c', 'c++', 'java', 'javascript']</h4>
+    <h4>OUTPUT OF THE ABOVE ARRAY AFTER APPLYING OF array2=array2.flat(19)</h4>
+    <h4>OUTPUT:['c', 'c++', 'java', 'javascript']</h4>
+</div>
+<!-- 27.flat() method ends here-->
+<!-- 28.flatMap() method starts from here-->
+<h1 class="red">28.flatMap() Method</h1>
+   <p>flatmap() function applies the given function on the every element of the array<br/>
+flatmap() method returns the new array after applying of the given function on the each element of the array<br/>
+it also flattens the resultant array with one level<br/>
+to do this we have to call map method first then we have to apply falt to the resultant array<br/>
+</p>
+<h3 class="red">EXAMPLE CODE OF THE flatMap() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;&lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+    &lt;h4&gt;ARRAY WE HAVE TAKEN&lt;/h4&gt;<br/>
+    &lt;ol id="listing"&gt;&lt;/ol&gt;<br/>
+    &lt;h4&gt;MAP RESULT OF THE ARRAY&lt;/h4&gt;<br/>
+    &lt;ol id="resultmap"&gt;&lt;/ol&gt;<br/>
+    &lt;h4&gt;FLATMAP RESULT OF THE ARRAY&lt;/h4&gt;<br/>
+    &lt;ol id="flatmap"&gt;&lt;/ol&gt;<br/>
+    &lt;h4&gt;if we observe the above results we can`t find any changes on results of the map and the flat map&lt;/h4&gt;<br/>
+    &lt;h4&gt;if we see in the console we can observe the difference in the output &lt;/h4&gt;<br/>
+    &lt;h4&gt;console.log(resultmapp) output(result of the map function)&lt;/h4&gt;<br/>
+    
+    &lt;p&gt;<br/>
+        (4) [Array(1), Array(1), Array(1), Array(1)]&lt;br/&gt;<br/>
+        Array(4)&lt;br/&gt;<br/>
+    0: [30]&lt;br/&gt;<br/>
+    1: [60]&lt;br/&gt;<br/>
+    2: [40]&lt;br/&gt;<br/>
+    3: [90]&lt;br/&gt;<br/>
+    length: 4<br/>
+    &lt;/p&gt;<br/>
+    &lt;h4>console.log(resultmappp) output(result of the flatmap function)&lt;/h4&gt;<br/>
+    &lt;p&gt;<br/>
+        (4) [30, 60, 40, 90]&lt;br/&gt;<br/>
+        Array(4)&lt;br/&gt;<br/>
+    0: 30&lt;br/&gt;<br/>
+    1: 60&lt;br/&gt;<br/>
+    2: 40&lt;br/&gt;<br/>
+    3: 90&lt;br/&gt;<br/>
+    length: 4&lt;br/&gt;<br/>
+    &lt;/p&gt;<br/>
+            &lt;script&gt;<br/>
+                const listing=document.getElementById("listing")<br/>
+                const resultmap=document.getElementById("resultmap")<br/>
+                const flatmap=document.getElementById("flatmap")<br/>
+    
+                var myArray=[3,6,4,9]<br/>
+    
+                var resultmapp=myArray.map(function(item){<br/>
+                     return [item*10];<br/>
+                })<br/>
+    console.log(resultmapp)<br/>
+    
+                for(let i=0;i<myArray.length;i++){<br/>
+                    var aa=document.createElement("li")<br/>
+                    aa.appendChild(document.createTextNode(myArray[i]))<br/>
+                    listing.appendChild(aa)<br/>
+                }<br/>
+    
+                for(let i=0;i<resultmapp.length;i++){<br/>
+                    var aa=document.createElement("li")<br/>
+                    aa.appendChild(document.createTextNode(resultmapp[i]))<br/>
+                    resultmap.appendChild(aa)<br/>
+                }<br/>
+    
+                var resultmappp=myArray.flatMap(function(item){<br/>
+                     return [item*10];<br/>
+                })<br/>
+                console.log(resultmappp)<br/>
+    
+                for(let i=0;i<resultmappp.length;i++){<br/>
+                    var aa=document.createElement("li")<br/>
+                    aa.appendChild(document.createTextNode(resultmappp[i]))<br/>
+                    flatmap.appendChild(aa)<br/>
+                }<br/>
+    
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE FLATMAP() EXAMPLE CODE</h3>
+<div class="codeoutput">
+   <h4>ARRAY WE HAVE TAKEN</h4>
+    <li>3</li>
+  <li>6</li>
+   <li>4</li>
+  <li>9</li>
+  <h4>MAP RESULT OF THE ARRAY</h4>
+    <li>30</li>
+    <li>60</li>
+    <li>40</li>
+    <li>90</li>
+    <h4>FLATMAP RESULT OF THE ARRAY</h4>
+    <li>30</li>
+    <li>60</li>
+    <li>40</li>
+    <li>90</li>
+    <h4>if we observe the above results we can`t find any changes on results of the map and the flat map</h4>
+    <h4>if we see in the console we can observe the difference in the output</h4>
+    <h4>console.log(resultmapp) output(result of the map function)</h4>
+    <h4>(4) [Array(1), Array(1), Array(1), Array(1)]</h4>
+    <h4>Array(4)</h4>
+    <h4>0: [30]</h4>
+    <h4>1: [60]</h4>
+    <h4>2: [40]</h4>
+    <h4>3: [90]</h4>
+    <h4>length: 4</h4>
+    
+    <h4>console.log(resultmappp) output(result of the flatmap function)</h4>
+    <h4>(4) [30, 60, 40, 90]</h4>
+    <h4>Array(4)</h4>
+   <h4> 0: 30</h4>
+    <h4>1: 60</h4>
+    <h4>2: 40</h4>
+    <h4>3: 90</h4>
+    <h4>length: 4</h4>
+</div>
+<!-- 28.flatMap() method ends here-->
+
+<!--29.from() start from here-->
+<h1 class="red">29.from() Method</h1>
+The Array.from() static method creates a new, shallow-copied Array instance
+ from an array-like or iterable object.
+<p>from() Method is the static method in JAVASCRIPT after applying particular function on every element of the Array, from method returns the shallow-copied instance <br>
+    of an array</p>
+<h3 class="red">EXAMPLE CODE OF THE FROM() METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+        &lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;h4&gt;ARRAY WE WAS TAKEN&lt;/h4&gt;<br/>
+    &lt;div id="list"&gt;<br/>
+        &lt;ol id="listing"&gt;&lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h4&gt;OUTPUT ARRAY AFTER APPLYING OF FROM() METHOD ON IT&lt;/h4&gt;<br/>
+    &lt;div id="listingg">&lt;/div&gt;<br/>
+            &lt;script&gt;<br/>
+    var myArray=["c","cpp","java","javascript"]<br/>
+    document.getElementById("listing").innerText=myArray.toString();<br/>
+    var a=Array.from(myArray,function(item){<br/>
+        return item.toUpperCase()<br/>
+    })<br/>
+    document.getElementById("listingg").innerText=a.toString()<br/>
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE FROM() METHOD EXAMPLE</h3>
+<div class="codeoutput">
+    <h4>ARRAY WE WAS TAKEN</h4>
+    <h4>c,cpp,java,javascript</h4>
+    <h4>OUTPUT ARRAY AFTER APPLYING OF FROM() METHOD ON IT</h4>
+    <h4>C,CPP,JAVA,JAVASCRIPT</h4>
+</div>
+<!--29.from() ends here-->
+<!-- 30.KEYS METHOD STARTS FROM HERE-->
+<h1 class="red">30.keys() METHOD</h1>
+<p>keys() Method of the JavaScript will return the object which contains the keys for each and every index of an Array</p>
+<h3 class="red">EXAMPLE CODE OF  THE KEYS METHOD</h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+        &lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+            &lt;h4&gt;ARRAY WE WAS TAKEN&lt;/h4&gt;<br/>
+    &lt;div id="list"&gt;<br/>
+        &lt;ol id="listing">&lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;h4>OUTPUT ARRAY AFTER APPLYING OF KEYS() METHOD ON IT&lt;/h4&gt;<br/>
+    &lt;div id="listingg"&gt;<br/>
+        &lt;ol id="listinggg"&gt;&lt;/ol&gt;<br/>
+    &lt;/div&gt;<br/>
+            &lt;script&gt;<br/>
+                const listinggg=document.getElementById("listingg")<br/>
+    var myArray=["c","cpp","java","javascript"]<br/>
+    document.getElementById("listing").innerText=myArray.toString();<br/>
+    var a=myArray.keys()<br/>
+    for(const i of a){<br/>
+        var aa=document.createElement("li")<br/>
+        aa.appendChild(document.createTextNode(i))<br/>
+        listingg.appendChild(aa)<br/>
+    }<br/>
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE KEYS() METHOD EXAMPLE CODE</h3>
+<div class="codeoutput">
+    <h4>ARRAY WE WAS TAKEN</h4>
+    <h4>c,cpp,java,javascript</h4>
+    <h4>OUTPUT ARRAY AFTER APPLYING OF KEYS() METHOD ON IT</h4>
+    <ol>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ol>
+</div>
+<!-- 30.KEYS METHOD ENDS HERE-->
+
+<!--31.Array.of Method starts from here-->
+<h1 class="red">31.of() METHOD </h1>
+<h3>of() method in the JAVASCRIPT is used to create the Array with the specified elements</h3>
+<h3 class="red">EXAMPLE CODE OF THE OF() METHOD </h3>
+<div class="sourcecode">
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html&gt;<br/>
+        &lt;head&gt;<br/>
+        &lt;/head&gt;<br/>
+        &lt;body&gt;<br/>
+    &lt;h4>ARRAY WHICH WAS GENERATED BY THE ARRAY.OF() METHOD&lt;/h4&gt;<br/>
+    &lt;div id="item"&gt;<br/>
+    &lt;H4>DIFFERENCE BETWEEN THE ARRAY AND THE ARRAY.OF() METHODS&lt;/H4&gt;
+    &lt;p>ARRAY() method creates an array for the specified number of elements but the Array.of() method creates the&lt;br/&gt;<br/>
+    array with the specified element&lt;/p&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;script&gt;<br/>
+            var a=Array.of("java","javascript")<br/>
+            document.getElementById("item").innerText=a.toString();<br/>
+            &lt;/script&gt;<br/>
+        &lt;/body&gt;<br/>
+    &lt;/html&gt;<br/>
+</div>
+<h3 class="red">OUTPUT OF THE EXAMPLE CODE OF THE OF() METHOD</h3>
+<div class="codeoutput">
+<h4>java,javascript</h4>
+</div> 
+<!--31.Array.of Method ends here-->
+<!--32  method starts from here-->
+
+<!--32  method ends here-->
+
+<h3 id="check"></h3>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+        <script>
+var studentname="vamsi";
+var rollno="1122334455";
+var mobile="9988776655";
+var coursetaken="javascript";
+var costperday=300;
+var noofdaysattended=20;
+var total=costperday*noofdaysattended;
+
+document.getElementById("studentname").innerText=studentname;
+document.getElementById("rollno").innerText=rollno;
+document.getElementById("mobile").innerText=mobile;
+document.getElementById("coursetaken").innerText=coursetaken;
+document.getElementById("costperday").innerText=costperday;
+document.getElementById("noofdaysattended").innerText=noofdaysattended;
+document.getElementById("total").innerText=total;
+
+document.getElementById("studentnamee").innerText=studentname;
+document.getElementById("rollnoo").innerText=rollno;
+document.getElementById("mobilee").innerText=mobile;
+document.getElementById("coursetakenn").innerText=coursetaken;
+document.getElementById("costperdayy").innerText=costperday;
+document.getElementById("noofdaysattendedd").innerText=noofdaysattended;
+document.getElementById("totall").innerText=total;
+
+var studentarray=new Array("vamsi","1122334455","9988776655","javascript","500","30");
+
+document.getElementById("studentnameop").innerText=studentarray[0];
+document.getElementById("rollnoop").innerText=studentarray[1];
+document.getElementById("mobileop").innerText=studentarray[2];
+document.getElementById("coursetakenop").innerText=studentarray[3];
+document.getElementById("costperdayop").innerText=studentarray[4];
+document.getElementById("noofdaysattendedop").innerText=studentarray[5];
+document.getElementById("totalop").innerText=studentarray[4]*studentarray[5];
+
+document.getElementById("studentnameeop").innerText=studentarray[0];
+document.getElementById("rollnooop").innerText=studentarray[1];
+document.getElementById("mobileeop").innerText=studentarray[2];
+document.getElementById("coursetakennop").innerText=studentarray[3];
+document.getElementById("costperdayyop").innerText=studentarray[4];
+document.getElementById("noofdaysattendeddop").innerText=studentarray[5];
+document.getElementById("totallop").innerText=studentarray[4]*studentarray[5];
+
+
+var a=typeof studentarray[5];
+const aa=document.getElementsByClassName("mainhead");
+aa.innerText="hello welcome to the javascript"
+        </script>
+
+    </body>
+</html>
