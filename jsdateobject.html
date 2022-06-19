@@ -35,6 +35,7 @@
         <div class="mainhead red">
             <h2>JAVASCRIPT DATE OBJECT</h2>
         </div>
+    </div>
         <div class="program">
             <div class="sourcecode">
                 <h3 class="violet">SOURCE CODE</h3>
@@ -57,7 +58,551 @@ document.getElementById("item").innerText=newdate;<br/>
                 <h3>Sun Jun 19 2022 21:24:24 GMT+0530 (India Standard Time)</h3>
             </div>
         </div>
-    </div>
+        <div class="codeoutputtable">
+            <table border="1px">
+                <tr>
+                    <th>METHOD</th>
+                <th>SOURCE CODE</th>
+                <th>OUTPUT</th>
+            </tr>
+            <tr>
+                <td>getDate()</td>
+                <td>
+                    <h4>get only the date</h4>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getDate();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <h4>we get only the date</h4>
+<div id="item"></div>
+                </td>
+            </tr>
+            <!--ONLY DATE ENDS HERE-->
+            <tr>
+                <td>getDay()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getDay();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <p>we get the output as <br/>
+                    0 for sunday<br/>
+                    1 for Monday<br/>
+                    2 for Tuesday<br/>
+                    3 for Wednesday<br/>
+                    4 for Thursday<br/>
+                    5 for Friday<br/>
+                    6 for Saturday<br/>
+                </p>
+<div id="getday"></div>
+                </td>
+            </tr>
+            <!--get day ends here-->
+            <tr>
+                <td>getHours()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getHours();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+<div id="gethours"></div>
+                </td>
+            </tr>
+            <!--getHours ends here-->
+            <tr>
+                <td>getMilliSeconds()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getMilliseconds();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getmilliseconds"></div>
+                </td>
+            </tr>
+            <!--get milliseconds ends here-->
+            <tr>
+                <td>getMinutes()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getMinutes();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getminutes"></div>
+                </td>
+            </tr>
+            <!--getminuites ends here-->
+            <tr>
+                <td>getMonth()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getMonth();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getmonth"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <tr>
+                <td>getSeconds()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getSeconds();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getseconds"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <tr>
+                <td>getTime()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getTime();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="gettime"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <tr>
+                <td>getTimezoneOffset()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getTimezoneOffset();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="gettimezoneoffset"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <tr>
+                <td>getFullYear()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getFullYear();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getfullyear"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCDate()-->
+            <tr>
+                <td>getUTCDate()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCDate();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcdate"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCDay()-->
+            <tr>
+                <td>getUTCDay()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCDay();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcday"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCFullYear()-->
+            <tr>
+                <td>getUTCFullYear()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCFullYear();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcfullyear"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCHours()-->
+            <tr>
+                <td>getUTCHours()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCHours();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutchours"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCMilliseconds()-->
+            <tr>
+                <td>getUTCMilliseconds()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCMilliseconds();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcmilliseconds"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCMinutes()-->
+            <tr>
+                <td>getUTCMinutes()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCMinutes();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcminutes"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCMonth()-->
+            <tr>
+                <td>getUTCMonth()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCMonth();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcmonth"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--getUTCSeconds()-->
+            <tr>
+                <td>getUTCSeconds()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.getUTCSeconds();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="getutcseconds"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--toDateString()-->
+            <tr>
+                <td>toDateString()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.toDateString();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="todatestring"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--toLocaleString()-->
+            <tr>
+                <td>toLocaleString()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.toLocaleString();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="tolocalestring"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--toLocaleDateString()-->
+            <tr>
+                <td>toLocaleDateString()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.toLocaleDateString();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="tolocaledatestring"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--toString()-->
+            <tr>
+                <td>toString()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.toString();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="tostring"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+            <!--toTimeString()-->
+            <tr>
+                <td>toTimeString()</td>
+                <td>
+                    &lt;!DOCTYPE html&gt;<br/>
+                    &lt;html&gt;<br/>
+                        &lt;head&gt;<br/>
+                    &lt;div id="item"&gt;&lt;/div&gt;<br/>
+                        &lt;/head&gt;<br/>
+                        &lt;body&gt;<br/>
+                            &lt;script&gt;<br/>
+                    var newdate=new Date();<br/>
+                    document.getElementById("item").innerText=newdate.toTimeString();<br/>
+                            &lt;/script&gt;<br/>
+                        &lt;/body&gt;<br/>
+                    &lt;/html&gt;<br/>
+                </td>
+                <td>
+                    <div id="totimestring"></div>
+                </td>
+            </tr>
+            <!--ends here-->
+
+
+
+            </table>
+        </div>
 </center>
+<script>
+var newdate=new Date();
+document.getElementById("item").innerText=newdate.getDate();
+document.getElementById("getday").innerText=newdate.getDay();
+document.getElementById("gethours").innerText=newdate.getHours()
+document.getElementById("getmilliseconds").innerText=newdate.getMilliseconds();
+document.getElementById("getminutes").innerText=newdate.getMinutes();
+document.getElementById("getmonth").innerText=newdate.getMonth();
+document.getElementById("getseconds").innerText=newdate.getSeconds();
+document.getElementById("gettime").innerText=newdate.getTime();
+document.getElementById("gettimezoneoffset").innerText=newdate.getTimezoneOffset();
+document.getElementById("getutcdate").innerText=newdate.getUTCDate()
+document.getElementById("getutcday").innerText=newdate.getUTCDay()
+document.getElementById("getutcfullyear").innerText=newdate.getUTCFullYear();
+document.getElementById("getutchours").innerText=newdate.getUTCHours();
+document.getElementById("getutcmilliseconds").innerText=newdate.getUTCMilliseconds();
+document.getElementById("getutcminutes").innerText=newdate.getUTCMinutes();
+document.getElementById("getutcmonth").innerText=newdate.getUTCMonth();
+document.getElementById("getutcseconds").innerText=newdate.getUTCSeconds();
+document.getElementById("todatestring").innerText=newdate.toDateString();
+document.getElementById("tolocalestring").innerText=newdate.toLocaleString();
+document.getElementById("tolocaldatestring").innerText=newdate.toLocaleDateString();
+document.getElementById("tolocaletimestring").innerText=newdate.toLocaleTimeString();
+document.getElementById("tostring").innerText=newdate.toString();
+document.getElementById("totimestring").innerText=newdate.toTimeString();
+</script>
     </body>
 </html>
